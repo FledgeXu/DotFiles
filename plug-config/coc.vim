@@ -170,4 +170,3 @@ nnoremap <space>e :CocCommand explorer<CR>
 " List all presets
 nnoremap <space>el :CocList explPresets
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-autocmd VimEnter * CocCommand explorer
