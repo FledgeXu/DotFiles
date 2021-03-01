@@ -20,7 +20,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Raimondi/delimitMate'
     Plug 'luochen1990/rainbow'
     Plug 'cespare/vim-toml'
-"    Plug 'preservim/nerdtree'
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
