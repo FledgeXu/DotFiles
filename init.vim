@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'honza/vim-snippets'
     Plug 'justinmk/vim-sneak'
+    Plug 'mhinz/vim-signify'
 call plug#end()
 
 " Global Value
