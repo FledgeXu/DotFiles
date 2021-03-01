@@ -29,11 +29,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'Raimondi/delimitMate'
     Plug 'luochen1990/rainbow'
     Plug 'cespare/vim-toml'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'peitalin/vim-jsx-typescript'
     Plug 'honza/vim-snippets'
     Plug 'justinmk/vim-sneak'
     Plug 'mhinz/vim-signify'
+    Plug 'liuchengxu/vim-which-key'
+    Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Global Value
@@ -41,6 +41,7 @@ call plug#end()
 let g:rainbow_active = 1 
 
 " Key Binding 
+let g:mapleader = "\<Space>"
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
@@ -49,10 +50,6 @@ imap <Left> <Nop>
 imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
-
-let mapleader=','
-
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/sneak.vim
