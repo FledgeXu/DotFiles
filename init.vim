@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'cespare/vim-toml'
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
+    Plug 'honza/vim-snippets'
 call plug#end()
 
 " Global Value
