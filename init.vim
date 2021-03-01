@@ -20,7 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Raimondi/delimitMate'
     Plug 'luochen1990/rainbow'
     Plug 'cespare/vim-toml'
-    Plug 'preservim/nerdtree'
+"    Plug 'preservim/nerdtree'
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
 call plug#end()
@@ -44,4 +44,3 @@ let mapleader=','
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 source $HOME/.config/nvim/plug-config/coc.vim
-source $HOME/.config/nvim/plug-config/nerdtree.vim

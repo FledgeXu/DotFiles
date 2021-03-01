@@ -163,3 +163,11 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Use preset argument to open it
+nnoremap <space>e :CocCommand explorer<CR>
+
+" List all presets
+nnoremap <space>el :CocList explPresets
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+autocmd VimEnter * CocCommand explorer

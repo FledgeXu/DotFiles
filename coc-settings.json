@@ -1,5 +1,28 @@
 {
+    "coc.preferences.formatOnSaveFiletypes": [
+        "go",
+        "rust",
+        "python",
+        "json",
+        "css",
+        "javascript",
+        "typescript"
+    ],
+    "coc.preferences.extensionUpdateCheck": "daily",
     "go.goplsOptions": {
         "gofumpt": true
+    },
+    "explorer.icon.enableNerdfont": true,
+    "explorer.keyMappings.global": {
+        "<cr>": [
+            "expandable?",
+            [
+                "expanded?",
+                "collapse",
+                "expand"
+            ],
+            "open"
+        ],
+        "v": "open:vsplit"
     }
 }
