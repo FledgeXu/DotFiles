@@ -10,4 +10,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-signify'
     Plug 'liuchengxu/vim-which-key'
     Plug 'sheerun/vim-polyglot'
+    Plug 'sonph/onehalf', {'rtp': 'vim/'}
 call plug#end()

@@ -29,7 +29,4 @@ imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
 
-highlight Pmenu    ctermbg=DarkGray ctermfg=White
-highlight PmenuSel ctermbg=LightGray ctermfg=White
-
 au! BufWritePost $MYVIMRC source %
