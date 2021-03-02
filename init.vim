@@ -51,6 +51,9 @@ imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
 
+highlight Pmenu    ctermbg=DarkGray ctermfg=White
+highlight PmenuSel ctermbg=LightGray ctermfg=White
+
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/sneak.vim
 source $HOME/.config/nvim/plug-config/vim-which-key.vim
