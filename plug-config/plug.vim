@@ -9,6 +9,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'mhinz/vim-signify'
     Plug 'liuchengxu/vim-which-key'
-    Plug 'sheerun/vim-polyglot'
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
+    Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
