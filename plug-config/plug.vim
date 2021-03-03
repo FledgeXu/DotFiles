@@ -13,4 +13,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'matze/vim-move'
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
 call plug#end()
