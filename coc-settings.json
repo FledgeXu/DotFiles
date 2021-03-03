@@ -6,7 +6,8 @@
         "json",
         "css",
         "javascript",
-        "typescript"
+        "typescript",
+        "toml"
     ],
     "coc.preferences.extensionUpdateCheck": "daily",
     "go.goplsOptions": {
@@ -23,6 +24,7 @@
             ],
             "open"
         ],
-        "v": "open:vsplit"
+        "v": "open:vsplit",
+        "t": "open:tab"
     }
 }
