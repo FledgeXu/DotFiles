@@ -12,4 +12,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'matze/vim-move'
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
