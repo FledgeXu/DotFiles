@@ -11,4 +11,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'liuchengxu/vim-which-key'
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'matze/vim-move'
 call plug#end()
