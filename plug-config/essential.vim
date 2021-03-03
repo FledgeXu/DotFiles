@@ -29,7 +29,10 @@ imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
 
-" Change Tab
+" About Tab
 nnoremap <A-Tab> :tabNext<CR>
+nnoremap tn :tabnew<CR>
+nnoremap tc :tabclose<CR>
+nnoremap to :tabonly<CR>
 
 au! BufWritePost $MYVIMRC source %
