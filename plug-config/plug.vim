@@ -16,4 +16,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
+    Plug 'ap/vim-css-color'
+    Plug 'puremourning/vimspector'
 call plug#end()

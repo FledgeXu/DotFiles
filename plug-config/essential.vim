@@ -35,4 +35,8 @@ nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
 nnoremap to :tabonly<CR>
 
+fun! GotoWindow(id)
+    call win_gotoid(a:id)
+endfun
+
 au! BufWritePost $MYVIMRC source %
