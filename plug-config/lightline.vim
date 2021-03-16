@@ -1,8 +1,9 @@
 let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ }
-      \ }
+            \ 'colorscheme': 'Tomorrow',
+            \ 'component_function': {
+            \   'filename': 'LightlineFilename',
+            \ }
+            \ }
 
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
