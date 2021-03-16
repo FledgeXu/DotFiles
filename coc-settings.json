@@ -8,7 +8,8 @@
         "css",
         "javascript",
         "typescript",
-        "toml"
+        "toml",
+        "typescriptreact"
     ],
     "coc.preferences.extensionUpdateCheck": "daily",
     "go.goplsOptions": {
@@ -26,6 +27,9 @@
             "open"
         ],
         "v": "open:vsplit",
-        "t": "open:tab"
+        "t": "open:tab",
+        "a": "addFile",
+        "A": "addDirectory",
+        "r": "rename"
     }
 }
