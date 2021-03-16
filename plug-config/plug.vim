@@ -18,4 +18,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-rooter'
     Plug 'ap/vim-css-color'
     Plug 'puremourning/vimspector'
+    Plug 'tpope/vim-fugitive'
 call plug#end()

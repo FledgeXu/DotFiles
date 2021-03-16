@@ -40,3 +40,4 @@ fun! GotoWindow(id)
 endfun
 
 au! BufWritePost $MYVIMRC source %
+autocmd BufReadPost * normal! g`"

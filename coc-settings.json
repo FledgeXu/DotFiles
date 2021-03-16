@@ -30,6 +30,8 @@
         "t": "open:tab",
         "a": "addFile",
         "A": "addDirectory",
-        "r": "rename"
+        "r": "rename",
+        "df": "delete",
+        "dF": "deleteForever"
     }
 }
