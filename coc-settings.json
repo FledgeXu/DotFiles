@@ -32,6 +32,14 @@
         "A": "addDirectory",
         "r": "rename",
         "df": "delete",
-        "dF": "deleteForever"
-    }
+        "dF": "deleteForever",
+        "yy": "copyFile",
+        "dd": "cutFile",
+        "p": "pasteFile",
+        "R": "refresh"
+    },
+    "explorer.autoExpandOptions": [
+        "uncompact"
+    ],
+    "javascript.suggestionActions.enabled": false
 }

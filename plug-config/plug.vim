@@ -19,4 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'
     Plug 'puremourning/vimspector'
     Plug 'tpope/vim-fugitive'
+    Plug 'skywind3000/asyncrun.vim'
+    Plug 'TovarishFin/vim-solidity'
+    Plug 'tpope/vim-commentary'
 call plug#end()

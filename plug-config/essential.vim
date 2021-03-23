@@ -17,6 +17,7 @@ set ignorecase
 set completeopt=menu,menuone
 set encoding=utf-8
 set noshowmode
+set cursorline
 set t_Co=256
 
 let g:mapleader = "\<Space>"
