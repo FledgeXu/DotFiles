@@ -11,3 +11,4 @@ luafile $HOME/.config/nvim/plug-config/vim-treesitter.lua
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/asyncrun.vim
+source $HOME/.config/nvim/plug-config/accelerated-jk.vim

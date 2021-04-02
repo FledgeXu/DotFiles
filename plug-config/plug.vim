@@ -22,4 +22,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'skywind3000/asyncrun.vim'
     Plug 'TovarishFin/vim-solidity'
     Plug 'tpope/vim-commentary'
+    Plug 'rhysd/accelerated-jk'
 call plug#end()
