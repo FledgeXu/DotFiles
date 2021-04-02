@@ -41,5 +41,7 @@
     "explorer.autoExpandOptions": [
         "uncompact"
     ],
-    "javascript.suggestionActions.enabled": false
+    "javascript.suggestionActions.enabled": false,
+    "html.format.indentInnerHtml": true,
+    "html.format.wrapAttributes": "force-expand-multiline"
 }
