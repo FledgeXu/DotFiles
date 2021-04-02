@@ -13,8 +13,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'p00f/nvim-ts-rainbow'
     Plug 'matze/vim-move'
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     Plug 'ap/vim-css-color'
     Plug 'puremourning/vimspector'
@@ -23,4 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'TovarishFin/vim-solidity'
     Plug 'tpope/vim-commentary'
     Plug 'rhysd/accelerated-jk'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
