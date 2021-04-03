@@ -1,9 +1,3 @@
-" let g:lightline = {
-"             \ 'colorscheme': 'Tomorrow',
-"             \ 'component_function': {
-"             \   'filename': 'LightlineFilename',
-"             \ }
-"             \ }
 let g:lightline = {
             \ 'colorscheme': 'Tomorrow',
             \ 'active': {

@@ -1,2 +1,2 @@
 colorscheme onehalflight
-let g:airline_theme='onehalfdark'
+let g:airline_theme = 'onehalfdark'
