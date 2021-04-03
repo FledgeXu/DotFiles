@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'cespare/vim-toml'
     Plug 'honza/vim-snippets'
     Plug 'justinmk/vim-sneak'
-    Plug 'mhinz/vim-signify'
+    " Plug 'mhinz/vim-signify'
     Plug 'liuchengxu/vim-which-key'
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-rooter'
     Plug 'ap/vim-css-color'
     Plug 'puremourning/vimspector'
-    Plug 'tpope/vim-fugitive'
     Plug 'skywind3000/asyncrun.vim'
     Plug 'TovarishFin/vim-solidity'
     Plug 'tpope/vim-commentary'
