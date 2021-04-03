@@ -18,7 +18,8 @@ set completeopt=menu,menuone
 set encoding=utf-8
 set noshowmode
 set cursorline
-set t_Co=256
+set termguicolors
+
 
 let g:mapleader = "\<Space>"
 map <Left> <Nop>
