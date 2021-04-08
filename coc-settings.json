@@ -43,5 +43,7 @@
     ],
     "javascript.suggestionActions.enabled": false,
     "html.format.indentInnerHtml": true,
-    "html.format.wrapAttributes": "force-expand-multiline"
+    "html.format.wrapAttributes": "force-expand-multiline",
+    "eslint.autoFixOnSave": true,
+    "eslint.packageManager": "yarn"
 }

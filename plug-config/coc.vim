@@ -170,3 +170,4 @@ nnoremap <space>e :CocCommand explorer<CR>
 " List all presets
 nnoremap <space>el :CocList explPresets
 autocmd BufEnter * if ( tabpagenr('$') == 1 && winnr("$") == 1 && &filetype == 'coc-explorer') | quit | endif
+autocmd FileType scss setl iskeyword+=@-@

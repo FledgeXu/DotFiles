@@ -12,4 +12,6 @@ let g:coc_global_extensions = [
             \'coc-explorer',
             \'coc-css',
             \'coc-git',
+            \'coc-eslint',
+            \'coc-prettier',
             \]

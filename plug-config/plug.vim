@@ -11,7 +11,6 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'matze/vim-move'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'airblade/vim-rooter'
 Plug 'puremourning/vimspector'
 Plug 'skywind3000/asyncrun.vim'
