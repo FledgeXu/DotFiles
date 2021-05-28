@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocUpdateSync'}
 Plug 'mhinz/vim-startify'
 Plug 'Raimondi/delimitMate'
 Plug 'cespare/vim-toml'
