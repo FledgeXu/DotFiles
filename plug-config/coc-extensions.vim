@@ -14,4 +14,5 @@ let g:coc_global_extensions = [
             \'coc-git',
             \'coc-eslint',
             \'coc-prettier',
+            \'coc-graphql',
             \]
