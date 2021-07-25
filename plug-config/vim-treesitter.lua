@@ -14,7 +14,8 @@ require'nvim-treesitter.configs'.setup {
         enable = true
     },
     rainbow = { 
-        enable = true
+        enable = true,
+        extended_mode = true 
     },
     highlight = {
         enable = true
