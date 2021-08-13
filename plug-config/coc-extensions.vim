@@ -15,4 +15,6 @@ let g:coc_global_extensions = [
             \'coc-eslint',
             \'coc-prettier',
             \'coc-styled-components',
+            \'coc-java',
+            \'coc-java-debug',
             \]

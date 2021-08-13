@@ -36,5 +36,6 @@
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "typescript.autoClosingTags": true,
-  "javascript.autoClosingTags": true
+  "javascript.autoClosingTags": true,
+  "java.import.gradle.enabled": true
 }
