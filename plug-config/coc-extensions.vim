@@ -18,4 +18,5 @@ let g:coc_global_extensions = [
             \'coc-styled-components',
             \'coc-java',
             \'coc-java-debug',
+            \'coc-marketplace',
             \]

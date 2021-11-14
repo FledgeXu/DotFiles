@@ -9,6 +9,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'liuchengxu/vim-which-key'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'romgrk/nvim-treesitter-context'
 Plug 'matze/vim-move'
 Plug 'airblade/vim-rooter'
 Plug 'puremourning/vimspector'
