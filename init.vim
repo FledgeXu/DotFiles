@@ -11,4 +11,5 @@ source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/asyncrun.vim
 source $HOME/.config/nvim/plug-config/accelerated-jk.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
+source $HOME/.config/nvim/plug-config/asynctask.vim
 luafile $HOME/.config/nvim/plug-config/nvim-colorizer.lua

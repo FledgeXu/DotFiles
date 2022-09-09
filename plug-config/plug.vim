@@ -11,6 +11,7 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'romgrk/nvim-treesitter-context'
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'matze/vim-move'
 Plug 'airblade/vim-rooter'
 Plug 'puremourning/vimspector'
@@ -24,4 +25,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'itchyny/vim-cursorword'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'tweekmonster/startuptime.vim'
+" Plug 'github/copilot.vim'
+Plug 'ellisonleao/glow.nvim'
+Plug 'sickill/vim-monokai'
+" Plug 'tribela/vim-transparent" '
 call plug#end()

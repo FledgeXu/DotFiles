@@ -17,20 +17,51 @@
   },
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
-    "v": "open:vsplit",
+    "i": false, // cancel default mapkey
+    "<tab>": "actionMenu",
+
+    "h": ["wait", "collapse"],
+    "gl": ["wait", "expanded?", "collapse:recursive", "expand:recursive"],
+    "<cr>": ["wait", "expanded?", "collapse", "expand"],
+    "o": ["wait", "expanded?", "collapse", "expand"],
+    "e": "open",
+    "s": "open:split",
+    "E": "open:vsplit",
     "t": "open:tab",
-    "a": "addFile",
-    "A": "addDirectory",
-    "r": "rename",
-    "df": "delete",
-    "dF": "deleteForever",
+
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
     "yy": "copyFile",
     "dd": "cutFile",
     "p": "pasteFile",
-    "R": "refresh"
+    "df": "delete",
+    "dF": "deleteForever",
+
+    "a": "addFile",
+    "A": "addDirectory",
+    "r": "rename",
+
+    "zh": "toggleHidden",
+    "g<dot>": "toggleHidden",
+    "R": "refresh",
+
+    "?": "help",
+    "q": "quit",
+    "<esc>": "esc",
+    "X": "systemExecute",
+    "gd": "listDrive",
+
+    "f": "search",
+    "F": "searchRecursive",
+
+    "gf": "gotoSource:file",
+    "gb": "gotoSource:buffer",
+
+    "[c": ["wait", "markPrev:git"],
+    "]c": ["wait", "markNext:git"]
   },
   "explorer.autoExpandOptions": ["uncompact"],
+  "explorer.previewAction.onHover": "labeling",
   "html.format.indentInnerHtml": true,
   "html.format.wrapAttributes": "force-expand-multiline",
   "eslint.autoFixOnSave": true,
@@ -92,5 +123,6 @@
       "command": "docformatter",
       "args": ["-"]
     }
-  }
+  },
+  "git.signPriority": 1
 }

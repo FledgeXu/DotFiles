@@ -1,6 +1,6 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
     ensure_installed = "all", 
-    ignore_install = { "haskell" }, 
+    ignore_install = { "swift", "phpdoc"}, 
     incremental_selection = {
         enable = true,
         keymaps = {
@@ -13,11 +13,11 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = true
     },
-    rainbow = { 
-        enable = true,
-        extended_mode = true 
-    },
     highlight = {
         enable = true
+    },
+    rainbow = { 
+        enable = true,
+        extended_mode = true
     }
 }

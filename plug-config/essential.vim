@@ -19,6 +19,7 @@ set encoding=utf-8
 set noshowmode
 set cursorline
 set termguicolors
+set spell
 
 
 let g:mapleader = "\<Space>"
@@ -36,6 +37,9 @@ nnoremap <A-Tab> :tabNext<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
 nnoremap to :tabonly<CR>
+
+" Terminal ESC
+tnoremap <esc><esc> <c-\><c-n>
 
 fun! GotoWindow(id)
     call win_gotoid(a:id)
