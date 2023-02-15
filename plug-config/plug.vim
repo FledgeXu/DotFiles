@@ -29,5 +29,6 @@ Plug 'tweekmonster/startuptime.vim'
 " Plug 'github/copilot.vim'
 Plug 'ellisonleao/glow.nvim'
 Plug 'sickill/vim-monokai'
+Plug 'shaunsingh/nord.nvim'
 " Plug 'tribela/vim-transparent" '
 call plug#end()

@@ -124,5 +124,6 @@
       "args": ["-"]
     }
   },
-  "git.signPriority": 1
+  "git.signPriority": 1,
+  "snippets.ultisnips.pythonPrompt": false
 }
