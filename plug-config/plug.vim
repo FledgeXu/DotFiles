@@ -31,4 +31,7 @@ Plug 'ellisonleao/glow.nvim'
 Plug 'sickill/vim-monokai'
 Plug 'shaunsingh/nord.nvim'
 " Plug 'tribela/vim-transparent" '
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'SirVer/ultisnips'
 call plug#end()
