@@ -10,7 +10,8 @@ source $HOME/.config/nvim/plug-config/vim-which-key.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/asyncrun.vim
 source $HOME/.config/nvim/plug-config/accelerated-jk.vim
-source $HOME/.config/nvim/plug-config/telescope.vim
 source $HOME/.config/nvim/plug-config/asynctask.vim
 source $HOME/.config/nvim/plug-config/nord.vim
+source $HOME/.config/nvim/plug-config/fzf.vim
+source $HOME/.config/nvim/plug-config/spelunker.vim
 luafile $HOME/.config/nvim/plug-config/nvim-colorizer.lua

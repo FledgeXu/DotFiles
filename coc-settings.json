@@ -1,16 +1,5 @@
 {
   "codeLens.enable": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "go",
-    "rust",
-    "python",
-    "json",
-    "css",
-    "javascript",
-    "typescript",
-    "toml",
-    "typescriptreact"
-  ],
   "coc.preferences.extensionUpdateCheck": "daily",
   "go.goplsOptions": {
     "gofumpt": true

@@ -19,7 +19,6 @@ set encoding=utf-8
 set noshowmode
 set cursorline
 set termguicolors
-set spell
 
 
 let g:mapleader = "\<Space>"
