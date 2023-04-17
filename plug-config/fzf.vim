@@ -1,1 +1,1 @@
-nnoremap <C-N> :Ag<enter>
+nnoremap <C-N> :<c-u>Ag<cr>
