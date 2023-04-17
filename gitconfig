@@ -1,0 +1,10 @@
+[user]
+	name = Fledge Shiu
+	email = xzk0701@gmail.com
+	signingkey = 89CF8428232EBFB3
+[core]
+	editor = nvim
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
