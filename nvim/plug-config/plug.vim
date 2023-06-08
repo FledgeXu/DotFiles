@@ -35,4 +35,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'SirVer/ultisnips'
 Plug 'kamykn/spelunker.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'github/copilot.vim'
 call plug#end()

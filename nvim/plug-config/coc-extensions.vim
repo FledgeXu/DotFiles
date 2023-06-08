@@ -5,7 +5,6 @@ let g:coc_global_extensions = [
             \'coc-toml',
             \'coc-snippets',
             \'coc-rust-analyzer',
-            \'coc-jedi',
             \'coc-diagnostic',
             \'coc-json',
             \'coc-html',
@@ -19,4 +18,7 @@ let g:coc_global_extensions = [
             \'coc-java',
             \'coc-java-debug',
             \'coc-marketplace',
+            \'coc-pyright',
+            \'@yaegassy/coc-volar',
+            \'@yaegassy/coc-volar-tools',
             \]

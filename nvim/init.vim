@@ -15,3 +15,4 @@ source $HOME/.config/nvim/plug-config/nord.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/spelunker.vim
 luafile $HOME/.config/nvim/plug-config/nvim-colorizer.lua
+luafile $HOME/.config/nvim/plug-config/glow.lua

@@ -19,6 +19,8 @@ set encoding=utf-8
 set noshowmode
 set cursorline
 set termguicolors
+set autoread
+filetype plugin indent on
 
 
 let g:mapleader = "\<Space>"

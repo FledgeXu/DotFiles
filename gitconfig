@@ -1,9 +1,10 @@
 [user]
 	name = Fledge Shiu
 	email = xzk0701@gmail.com
-	signingkey = 89CF8428232EBFB3
+	signingkey = 45146428D914E229323E931089CF8428232EBFB3
 [core]
 	editor = nvim
+	excludesfile = /Users/fledge/.gitignore
 [commit]
 	gpgsign = true
 [gpg]

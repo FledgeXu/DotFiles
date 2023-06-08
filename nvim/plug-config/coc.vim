@@ -116,6 +116,8 @@ endif
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
+" Add `:Prettier` command to format current butter
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
@@ -151,3 +153,17 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Coc File Explorer
 nmap <space>e <Cmd>CocCommand explorer<CR>
+
+"" Coc snippets
+"inoremap <silent><expr> <TAB>
+"      \ coc#pum#visible() ? coc#_select_confirm() :
+"      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"      \ CheckBackspace() ? "\<TAB>" :
+"      \ coc#refresh()
+"
+"function! CheckBackspace() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"
+"let g:coc_snippet_next = '<tab>'
