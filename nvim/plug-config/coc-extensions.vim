@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
             \'coc-java-debug',
             \'coc-marketplace',
             \'coc-pyright',
+            \'coc-docker',
             \'@yaegassy/coc-volar',
             \'@yaegassy/coc-volar-tools',
             \]

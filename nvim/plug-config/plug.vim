@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocUpdateSync'}
 Plug 'mhinz/vim-startify'
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
 Plug 'cespare/vim-toml'
 Plug 'honza/vim-snippets'
 Plug 'justinmk/vim-sneak'
@@ -26,15 +26,18 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'itchyny/vim-cursorword'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tweekmonster/startuptime.vim'
-" Plug 'github/copilot.vim'
 Plug 'ellisonleao/glow.nvim'
 Plug 'sickill/vim-monokai'
-Plug 'shaunsingh/nord.nvim'
+Plug 'folke/tokyonight.nvim'
 " Plug 'tribela/vim-transparent" '
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'SirVer/ultisnips'
 Plug 'kamykn/spelunker.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'windwp/nvim-autopairs'
 call plug#end()

@@ -42,9 +42,21 @@ nnoremap to :tabonly<CR>
 " Terminal ESC
 tnoremap <esc><esc> <c-\><c-n>
 
+"
+nnoremap <silent> <Leader><Leader> :call SourceConfig()<cr>
+
+
 fun! GotoWindow(id)
     call win_gotoid(a:id)
 endfun
 
-au! BufWritePost $MYVIMRC source %
-autocmd BufReadPost * normal! g`"
+if (!exists('*SourceConfig'))
+  function SourceConfig() abort
+    " Your path will probably be different
+    for f in split(glob('~/.config/nvim/autoload/*'), '\n')
+      exe 'source' f
+    endfor
+
+    source $MYVIMRC
+  endfunction
+endif
