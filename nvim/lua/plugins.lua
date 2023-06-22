@@ -25,6 +25,13 @@ local plugins = {
     },
     "nvim-lualine/lualine.nvim",
     "itchyny/vim-cursorword",
+    "goolord/alpha-nvim",
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    "norcalli/nvim-colorizer.lua",
+    "folke/trouble.nvim",
     -- Utils ---
     "rhysd/accelerated-jk",
     {
@@ -34,6 +41,10 @@ local plugins = {
             "BurntSushi/ripgrep",
         },
     },
+    {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make"
+    },
     "kamykn/spelunker.vim",
     "lewis6991/gitsigns.nvim",
     "nvim-tree/nvim-tree.lua",
@@ -41,7 +52,6 @@ local plugins = {
     "folke/which-key.nvim",
     "ellisonleao/glow.nvim",
     "windwp/nvim-autopairs",
-    "mhinz/vim-startify",
     "akinsho/bufferline.nvim",
     "lukas-reineke/indent-blankline.nvim",
     -- Treesitter --

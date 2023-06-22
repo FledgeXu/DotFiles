@@ -26,6 +26,7 @@ option.title = true
 option.swapfile = false
 option.backup = false
 option.updatetime = 50
+option.mouse = "a"
 
 -- Buffer Settings --
 buffer.fileenconding = [[utf-8]]
