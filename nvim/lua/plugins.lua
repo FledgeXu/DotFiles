@@ -38,6 +38,16 @@ local plugins = {
     "lewis6991/gitsigns.nvim",
     "nvim-tree/nvim-tree.lua",
     "ethanholz/nvim-lastplace",
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+    },
+    "ellisonleao/glow.nvim",
+    'windwp/nvim-autopairs',
     -- Treesitter --
     {
         "nvim-treesitter/nvim-treesitter",
