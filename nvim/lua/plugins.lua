@@ -49,6 +49,7 @@ local plugins = {
     "ellisonleao/glow.nvim",
     "windwp/nvim-autopairs",
     "mhinz/vim-startify",
+    "akinsho/bufferline.nvim",
     -- Treesitter --
     {
         "nvim-treesitter/nvim-treesitter",

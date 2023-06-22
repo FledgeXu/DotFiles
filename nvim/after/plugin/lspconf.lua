@@ -3,8 +3,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls", "pyright" },
 })
-require("lspconfig").lua_ls.setup {}
-require("lspconfig").pyright.setup {}
+
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
@@ -34,7 +33,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-
+-- nvim-cmp Settings --
 local cmp = require('cmp')
 
 cmp.setup({
@@ -73,6 +72,7 @@ cmp.setup({
 })
 
 
+-- null_ls Settings --
 local null_ls = require("null-ls")
 
 null_ls.setup({
@@ -80,3 +80,11 @@ null_ls.setup({
         null_ls.builtins.formatting.black,
     },
 })
+-- Enable lsconfig --
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require("lspconfig").lua_ls.setup {
+    capabilities = capabilities
+}
+require("lspconfig").pyright.setup {
+    capabilities = capabilities
+}
