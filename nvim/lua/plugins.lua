@@ -38,25 +38,22 @@ local plugins = {
     "lewis6991/gitsigns.nvim",
     "nvim-tree/nvim-tree.lua",
     "ethanholz/nvim-lastplace",
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-    },
+    "folke/which-key.nvim",
     "ellisonleao/glow.nvim",
     "windwp/nvim-autopairs",
     "mhinz/vim-startify",
     "akinsho/bufferline.nvim",
+    "lukas-reineke/indent-blankline.nvim",
     -- Treesitter --
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
     },
     --- LSP ---
-    "williamboman/mason.nvim",
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
+    },
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
