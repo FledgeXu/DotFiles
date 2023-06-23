@@ -3,7 +3,7 @@ local buffer = vim.b
 local global = vim.g
 
 -- Globol Settings --
-option.guicursor = ""
+option.showmode = false
 option.expandtab = true
 option.backspace = { "indent", "eol", "start" }
 option.tabstop = 4

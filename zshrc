@@ -60,7 +60,7 @@ alias vim=nvim
 alias typora="open -a typora"
 alias brave="open -a Brave\ Browser"
 alias finder="open -a finder"
-alias vide="/Applications/neovide.app/Contents/MacOS/neovide --multigrid"
+alias vide="/opt/homebrew/bin/neovide --multigrid --frame transparent"
 
 alias ..="cd .."
 
