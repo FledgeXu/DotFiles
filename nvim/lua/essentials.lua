@@ -27,9 +27,12 @@ option.swapfile = false
 option.backup = false
 option.updatetime = 50
 option.mouse = "a"
+option.undofile = true
+option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
+option.exrc = true
 
 -- Buffer Settings --
-buffer.fileenconding = [[utf-8]]
+buffer.fileenconding = "utf-8"
 
 -- Global Settings --
 global.mapleader = " "

@@ -15,7 +15,11 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins ---
 local plugins = {
     -- Beautify Plugin --
-    "folke/tokyonight.nvim",
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+    },
     {
         "utilyre/barbecue.nvim",
         dependencies = {
@@ -60,6 +64,7 @@ local plugins = {
         build = ":TSUpdate",
     },
     --- LSP ---
+    "glepnir/lspsaga.nvim",
     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
@@ -72,6 +77,10 @@ local plugins = {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     "jose-elias-alvarez/null-ls.nvim",
+    -- DAP --
+    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+    "theHamsta/nvim-dap-virtual-text",
     -- Snippets --.
     {
         "L3MON4D3/LuaSnip",
@@ -79,6 +88,13 @@ local plugins = {
     },
     "saadparwaiz1/cmp_luasnip",
 }
-local opts = {}
+local opts = {
+    checker = {
+        -- automatically check for plugin updates
+        enabled = true,
+        notify = true,      -- get a notification when new updates are found
+        frequency = 604800, -- check for updates every week
+    }
+}
 
 require("lazy").setup(plugins, opts)

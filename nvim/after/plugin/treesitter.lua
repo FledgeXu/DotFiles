@@ -1,6 +1,6 @@
 require('nvim-treesitter.configs').setup {
-    ensure_installed = "all", 
-    -- ignore_install = { "swift", "phpdoc"}, 
+    ensure_installed = "all",
+    -- ignore_install = { "swift", "phpdoc"},
     incremental_selection = {
         enable = true,
         keymaps = {
@@ -16,8 +16,9 @@ require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true
     },
-    rainbow = { 
+    rainbow = {
         enable = true,
         extended_mode = true
     }
 }
+require("nvim-treesitter.install").compilers = { "clang" }
