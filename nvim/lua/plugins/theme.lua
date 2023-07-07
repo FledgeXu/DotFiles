@@ -6,7 +6,7 @@ return {
         "utilyre/barbecue.nvim",
         "nvim-lualine/lualine.nvim",
         "SmiteshP/nvim-navic",
-        "nvim-tree/nvim-web-devicons",     -- optional dependency
+        "nvim-tree/nvim-web-devicons", -- optional dependency
     },
     config = function()
         vim.cmd [[colorscheme tokyonight]]
