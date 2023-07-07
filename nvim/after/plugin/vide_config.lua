@@ -1,5 +1,5 @@
 if vim.g.neovide then
-    vim.o.guifont = "Cascadia Code PL:h15"
+    vim.o.guifont = "Cascadia Code:h15:l"
     vim.g.transparency = 0.98
     vim.g.neovide_no_idle = true
     vim.g.neovide_input_macos_alt_is_meta = true

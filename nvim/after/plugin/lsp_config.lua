@@ -11,6 +11,7 @@ local servers = {
 }
 local luasnip = require("luasnip")
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+require("neoconf").setup()
 require("luasnip.loaders.from_vscode").lazy_load()
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -31,8 +32,11 @@ cmp.event:on(
     'confirm_done',
     cmp_autopairs.on_confirm_done()
 )
-
 cmp.setup({
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
@@ -40,7 +44,6 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-Space>'] = cmp.mapping.complete(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -73,6 +76,21 @@ cmp.setup({
         -- { name = 'snippy' }, -- For snippy users.
     }, {
         { name = 'buffer' },
+        { name = 'path' },
+    })
+})
+cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' },
+    }
+})
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
     })
 })
 
@@ -103,7 +121,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gd', "<cmd>Lspsaga goto_definition<CR>", opts)
         vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
         vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<CR>", opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
         vim.keymap.set('n', '<leader>qf', "<cmd>Lspsaga code_action<CR>", opts)
         vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)

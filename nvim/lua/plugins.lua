@@ -2,8 +2,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
-        "git",
-        "clone",
+        "git", "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
         "--branch=stable", -- latest stable release
@@ -35,7 +34,6 @@ local plugins = {
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     "norcalli/nvim-colorizer.lua",
-    "folke/trouble.nvim",
     -- Utils ---
     "rhysd/accelerated-jk",
     {
@@ -58,11 +56,16 @@ local plugins = {
     "windwp/nvim-autopairs",
     "akinsho/bufferline.nvim",
     "lukas-reineke/indent-blankline.nvim",
+    "folke/flash.nvim",
+    "folke/trouble.nvim",
+    "folke/persistence.nvim",
+    "numToStr/Comment.nvim",
     -- Treesitter --
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
     },
+    "nvim-treesitter/playground",
     --- LSP ---
     "glepnir/lspsaga.nvim",
     {
@@ -77,10 +80,16 @@ local plugins = {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     "jose-elias-alvarez/null-ls.nvim",
+    "folke/neoconf.nvim",
+    {
+        "j-hui/fidget.nvim",
+        tag = 'legacy',
+    },
     -- DAP --
     "mfussenegger/nvim-dap",
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
+    "mfussenegger/nvim-dap-python",
     -- Snippets --.
     {
         "L3MON4D3/LuaSnip",
@@ -94,7 +103,7 @@ local opts = {
         enabled = true,
         notify = true,      -- get a notification when new updates are found
         frequency = 604800, -- check for updates every week
-    }
+    },
 }
 
 require("lazy").setup(plugins, opts)

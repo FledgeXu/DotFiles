@@ -1,0 +1,10 @@
+{
+    "lspconfig": {
+        "pyright": {
+            "python.analysis.diagnosticSeverityOverrides": {
+                "reportUnusedImport": "error",
+                "reportDuplicateImport": "error"
+            }
+        }
+    }
+}
