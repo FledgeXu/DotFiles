@@ -43,12 +43,13 @@ vim.keymap.set({ "n", "i" }, "<Right>", "<Nop>")
 vim.keymap.set({ "n", "i" }, "<Up>", "<Nop>")
 vim.keymap.set({ "n", "i" }, "<Down>", "<Nop>")
 
-vim.keymap.set("n", "ts", ":tabNext<CR>")
-vim.keymap.set("n", "tn", ":tabnew<CR>")
-vim.keymap.set("n", "tc", ":tabclose<CR>")
-vim.keymap.set("n", "to", ":tabonly<CR>")
+-- vim.keymap.set("n", "ts", ":tabNext<CR>")
+-- vim.keymap.set("n", "tn", ":tabnew<CR>")
+-- vim.keymap.set("n", "tc", ":tabclose<CR>")
+-- vim.keymap.set("n", "to", ":tabonly<CR>")
 
-vim.keymap.set("n", "<A-Tab>", ":bNext<CR>", { silent = true })
+vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

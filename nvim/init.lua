@@ -1,4 +1,4 @@
 -- Speed up plugins --
 vim.loader.enable()
 require("essentials")
-require("plugins")
+require("lazy_nvim")
