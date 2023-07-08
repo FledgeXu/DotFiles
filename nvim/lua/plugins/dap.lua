@@ -1,6 +1,7 @@
 return {
     "rcarriga/nvim-dap-ui",
     dependencies = {
+        "jay-babu/mason-nvim-dap.nvim",
         "mfussenegger/nvim-dap",
         "theHamsta/nvim-dap-virtual-text",
         "mfussenegger/nvim-dap-python",
@@ -40,6 +41,14 @@ return {
         end },
     },
     config = function()
+        local daps = {
+            "python"
+        }
+        require('mason-nvim-dap').setup({
+            ensure_installed = daps,
+            automatic_installation = true,
+            handlers = {},
+        })
         local dap, dapui = require("dap"), require("dapui")
         dapui.setup()
         dap.listeners.after.event_initialized["dapui_config"] = function()

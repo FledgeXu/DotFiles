@@ -8,6 +8,7 @@ return {
     },
     {
         "numToStr/Comment.nvim",
+        event = "VeryLazy",
         config = {}
     },
     {
@@ -21,6 +22,7 @@ return {
     },
     {
         "windwp/nvim-autopairs",
+        event = "VeryLazy",
         config = {
             enable_check_bracket_line = false
         }
@@ -43,16 +45,19 @@ return {
     },
     {
         "folke/flash.nvim",
+        event = "VeryLazy",
         config = {}
     },
     {
         "kamykn/spelunker.vim",
+        event = "VeryLazy",
         config = function()
             vim.g.spelunker_check_type = 2
         end
     },
     {
         "ellisonleao/glow.nvim",
+        event = "VeryLazy",
         config = {}
     },
     {
@@ -64,6 +69,8 @@ return {
     },
     {
         "folke/which-key.nvim",
+        event = "VeryLazy",
         config = {},
     },
+    -- "jessekelighine/vindent.vim",
 }

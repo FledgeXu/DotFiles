@@ -2,6 +2,7 @@ return {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
     dependencies = {
+        "folke/neodev.nvim",
         "glepnir/lspsaga.nvim",
         "folke/neoconf.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -12,6 +13,7 @@ return {
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
         "jose-elias-alvarez/null-ls.nvim",
+        "jay-babu/mason-null-ls.nvim",
         {
             "j-hui/fidget.nvim",
             tag = 'legacy',
@@ -34,9 +36,13 @@ return {
             "docker_compose_language_service",
             "bashls",
         }
+        local linters = {
+            "black"
+        }
         local luasnip = require("luasnip")
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         require("neoconf").setup()
+        require("neodev").setup()
         require("luasnip.loaders.from_vscode").lazy_load()
         require("mason").setup()
         require("mason-lspconfig").setup({
@@ -121,11 +127,14 @@ return {
 
 
         -- null_ls Settings --
+        require("mason-null-ls").setup({
+            ensure_installed = linters,
+            handlers = {},
+        })
         local null_ls = require("null-ls")
 
         null_ls.setup({
             sources = {
-                null_ls.builtins.formatting.black,
                 null_ls.builtins.code_actions.gitsigns,
             },
         })
@@ -165,8 +174,7 @@ return {
             end,
         })
 
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         for _, lsp in ipairs(servers) do
             require("lspconfig")[lsp].setup {
                 capabilities = capabilities,

@@ -20,14 +20,17 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
+        event = "VeryLazy",
         config = {}
     },
     {
         "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
         config = {}
     },
     {
         "norcalli/nvim-colorizer.lua",
+        event = "VeryLazy",
         config = {}
     },
     {
@@ -37,6 +40,7 @@ return {
     },
     {
         "RRethy/vim-illuminate",
+        event = "VeryLazy",
         config = function()
             require('illuminate').configure({
                 providers = {

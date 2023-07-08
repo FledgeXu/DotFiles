@@ -16,9 +16,12 @@ local opts = {
     checker = {
         -- automatically check for plugin updates
         enabled = true,
-        notify = true,      -- get a notification when new updates are found
+        notify = true,      -- get the notification when new updates are found
         frequency = 604800, -- check for updates every week
     },
+    install = {
+        colorscheme = { "tokyonight" }
+    }
 }
 
 require("lazy").setup("plugins", opts)
