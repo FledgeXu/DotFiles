@@ -7,11 +7,6 @@ return {
         },
     },
     {
-        "numToStr/Comment.nvim",
-        event = "VeryLazy",
-        config = {}
-    },
-    {
         "folke/persistence.nvim",
         keys = {
             { "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]] },
@@ -73,4 +68,14 @@ return {
         config = {},
     },
     -- "jessekelighine/vindent.vim",
+    {
+        'echasnovski/mini.ai',
+        event = "VeryLazy",
+        config = {}
+    },
+    {
+        "echasnovski/mini.comment",
+        event = "VeryLazy",
+        config = {}
+    },
 }
