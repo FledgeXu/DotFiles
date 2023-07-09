@@ -13,12 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugins ---
 local opts = {
-    checker = {
-        -- automatically check for plugin updates
-        enabled = true,
-        notify = true,      -- get the notification when new updates are found
-        frequency = 604800, -- check for updates every week
-    },
     install = {
         colorscheme = { "tokyonight" }
     }

@@ -30,6 +30,7 @@ option.mouse = "a"
 option.undofile = true
 option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
 option.exrc = true
+option.wrap = false
 
 -- Buffer Settings --
 buffer.fileenconding = "utf-8"
