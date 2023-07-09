@@ -1,6 +1,7 @@
 return {
     {
         "akinsho/bufferline.nvim",
+        event = "VeryLazy",
         config = {
             options = {
                 diagnostics = "nvim_lsp"
@@ -35,6 +36,7 @@ return {
     },
     {
         "folke/todo-comments.nvim",
+        event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim" },
         confing = {},
     },
