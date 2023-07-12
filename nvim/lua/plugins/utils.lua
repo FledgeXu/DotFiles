@@ -47,7 +47,13 @@ return {
                 "s",
                 mode = { "n", "x", "o" },
                 function()
-                    require("flash").jump()
+                    require("flash").jump({
+                        search = {
+                            mode = function(str)
+                                return "\\<" .. str
+                            end,
+                        },
+                    })
                 end,
                 desc = "Flash",
             },
@@ -97,12 +103,64 @@ return {
         event = "VeryLazy",
         config = {}
     },
+    -- {
+    --     "nvim-tree/nvim-tree.lua",
+    --     keys = {
+    --         { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Open the nvim-tree" }
+    --     },
+    --     config = {}
+    -- },
     {
-        "nvim-tree/nvim-tree.lua",
+        "nvim-neo-tree/neo-tree.nvim",
         keys = {
-            { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Open the nvim-tree" }
+            { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Open the neo-tree" }
         },
-        config = {}
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
+        config = {
+            default_component_configs = {
+                icon = {
+                    folder_empty = "󰜌",
+                    folder_empty_open = "󰜌",
+                },
+                git_status = {
+                    symbols = {
+                        renamed  = "󰁕",
+                        unstaged = "󰄱",
+                    },
+                },
+            },
+            document_symbols = {
+                kinds = {
+                    File = { icon = "󰈙", hl = "Tag" },
+                    Namespace = { icon = "󰌗", hl = "Include" },
+                    Package = { icon = "󰏖", hl = "Label" },
+                    Class = { icon = "󰌗", hl = "Include" },
+                    Property = { icon = "󰆧", hl = "@property" },
+                    Enum = { icon = "󰒻", hl = "@number" },
+                    Function = { icon = "󰊕", hl = "Function" },
+                    String = { icon = "󰀬", hl = "String" },
+                    Number = { icon = "󰎠", hl = "Number" },
+                    Array = { icon = "󰅪", hl = "Type" },
+                    Object = { icon = "󰅩", hl = "Type" },
+                    Key = { icon = "󰌋", hl = "" },
+                    Struct = { icon = "󰌗", hl = "Type" },
+                    Operator = { icon = "󰆕", hl = "Operator" },
+                    TypeParameter = { icon = "󰊄", hl = "Type" },
+                    StaticMethod = { icon = '󰠄 ', hl = 'Function' },
+                }
+            },
+            -- Add this section only if you've configured source selector.
+            source_selector = {
+                sources = {
+                    { source = "filesystem", display_name = " 󰉓 Files " },
+                    { source = "git_status", display_name = " 󰊢 Git " },
+                },
+            },
+        }
     },
     {
         "folke/which-key.nvim",
@@ -123,4 +181,23 @@ return {
         event = "VeryLazy",
         config = {}
     },
+    {
+        "s1n7ax/nvim-window-picker",
+        config = {
+            hint = "floating-big-letter",
+            filter_rules = {
+                include_current_win = true,
+                bo = {
+                    filetype = { "fidget", "neo-tree" }
+                }
+            }
+        },
+        keys = {
+            { "<c-w>p", [[<cmd>lua vim.api.nvim_set_current_win(require('window-picker').pick_window())<cr>]] }
+        }
+    },
+    {
+        "ThePrimeagen/vim-be-good",
+        cmd = { "VimBeGood" }
+    }
 }

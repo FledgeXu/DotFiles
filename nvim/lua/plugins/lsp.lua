@@ -1,5 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
+    cmd = "Mason",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         {
@@ -26,6 +27,9 @@ return {
             "dockerls",
             "docker_compose_language_service",
             "bashls",
+            "ocamllsp",
+            "taplo",
+            "ruff_lsp",
         }
         require("neoconf").setup()
         require("neodev").setup()
@@ -35,7 +39,7 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = servers,
             handlers = {
-                function(server_name) -- default handler (optional)
+                function(server_name)     -- default handler (optional)
                     require("lspconfig")[server_name].setup {
                         capabilities = require('cmp_nvim_lsp').default_capabilities()
                     }
@@ -55,7 +59,8 @@ return {
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
                 local opts = { buffer = ev.buf }
                 -- We need a specific threat for the "term_toggle", it must be a global mapping, not a buffer mapping.
-                vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>", { noremap = true, silent = true })
+                vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>",
+                    { noremap = true, silent = true })
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
                 vim.keymap.set('n', 'gd', "<cmd>Lspsaga goto_definition<CR>", opts)
                 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)

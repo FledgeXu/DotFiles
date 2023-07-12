@@ -15,12 +15,13 @@ option.smartindent = true
 option.number = true
 option.relativenumber = true
 option.wildmenu = true
-option.hlsearch = true
+option.hlsearch = false
 option.ignorecase = true
 option.smartcase = true
 option.completeopt = { "menu", "menuone" }
 option.cursorline = true
 option.termguicolors = true
+option.signcolumn = "yes"
 option.autoread = true
 option.title = true
 option.swapfile = false
@@ -31,6 +32,7 @@ option.undofile = true
 option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
 option.exrc = true
 option.wrap = false
+option.splitright = true
 
 -- Buffer Settings --
 buffer.fileenconding = "utf-8"
