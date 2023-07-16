@@ -55,6 +55,7 @@ alias la='exa -la --sort=modified'
 alias ps='procs'
 alias cat='bat --theme ansi'
 #alias vi=vim
+alias v="NVIM_APPNAME=mynvim nvim"
 alias vim=nvim
 alias typora="open -a typora"
 alias brave="open -a Brave\ Browser"

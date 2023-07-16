@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    cmd = "Mason",
+    cmd = { "Mason", "Neoconf" },
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         {
@@ -19,17 +19,22 @@ return {
     },
     config = function()
         local servers = {
-            "lua_ls",
-            "pyright",
-            "jsonls",
-            "marksman",
-            "volar",
-            "dockerls",
-            "docker_compose_language_service",
-            "bashls",
-            "ocamllsp",
-            "taplo",
-            "ruff_lsp",
+            lua_ls = {},
+            pyright = {},
+            jsonls = {},
+            marksman = {},
+            volar = {},
+            dockerls = {},
+            docker_compose_language_service = {},
+            bashls = {},
+            ocamllsp = {},
+            taplo = {},
+            ruff_lsp = {
+                Lua = {
+                    workspace = { checkThirdParty = false },
+                    telemetry = { enable = false },
+                },
+            },
         }
         require("neoconf").setup()
         require("neodev").setup()
@@ -37,11 +42,12 @@ return {
         require("lspsaga").setup()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = servers,
+            ensure_installed = vim.tbl_keys(servers),
             handlers = {
-                function(server_name)     -- default handler (optional)
+                function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
-                        capabilities = require('cmp_nvim_lsp').default_capabilities()
+                        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                        settings = servers[server_name],
                     }
                 end,
             }

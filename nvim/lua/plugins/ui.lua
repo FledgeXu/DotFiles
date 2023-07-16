@@ -1,5 +1,20 @@
 return {
     {
+        "nvim-lualine/lualine.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        config = true,
+    },
+    {
+        "utilyre/barbecue.nvim",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        config = true,
+    },
+    {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
         config = {
@@ -23,35 +38,29 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = "VeryLazy",
-        config = {}
+        config = true,
     },
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
-        config = {}
+        config = true,
     },
     {
         "norcalli/nvim-colorizer.lua",
         event = "VeryLazy",
-        config = {}
+        config = true,
     },
     {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim" },
-        confing = {},
+        confing = true,
     },
     {
         "RRethy/vim-illuminate",
         event = "VeryLazy",
         config = function()
-            require('illuminate').configure({
-                providers = {
-                    'lsp',
-                    'treesitter',
-                    'regex',
-                },
-            })
+            require('illuminate').configure()
         end,
     },
 }

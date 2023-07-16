@@ -5,6 +5,7 @@
 [core]
 	editor = nvim
 	excludesfile = /Users/fledge/.gitignore
+	ignorecase = false
 [commit]
 	gpgsign = true
 [gpg]

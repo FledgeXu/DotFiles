@@ -7,12 +7,25 @@ return {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make"
         },
+        "nvim-telescope/telescope-dap.nvim",
     },
+    cmd = { "Telescope" },
     keys = {
+        { '<leader>?',       "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
+        { "<leader><space>", "<cmd>lua require('telescope.builtin').buffers()<cr>" },
+        { "<leader>/",
+            function()
+                -- You can pass additional configuration to telescope to change theme, layout, etc.
+                require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+                    winblend = 10,
+                    previewer = false,
+                })
+            end
+        },
         { '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>" },
         { '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
-        { '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>" },
         { '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>" },
+        { '<leader>fp', "<cmd>lua require('telescope.builtin').builtin()<cr>" },
         { '<leader>qf', "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
         { '<leader>km', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
         { '<c-p>',      "<cmd>lua require('telescope.builtin').commands()<cr>" },
@@ -30,6 +43,6 @@ return {
             }
         }
         require('telescope').load_extension('fzf')
-        local builtin = require('telescope.builtin')
+        require('telescope').load_extension('dap')
     end
 }

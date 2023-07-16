@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins ---
 local opts = {
     install = {
-        colorscheme = { "tokyonight" }
+        colorscheme = { "catppuccin-frappe" }
     }
 }
 

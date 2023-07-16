@@ -4,7 +4,6 @@ local global = vim.g
 
 -- Globol Settings --
 option.showmode = false
-option.expandtab = true
 option.backspace = { "indent", "eol", "start" }
 option.tabstop = 4
 option.shiftwidth = 4
@@ -18,7 +17,7 @@ option.wildmenu = true
 option.hlsearch = false
 option.ignorecase = true
 option.smartcase = true
-option.completeopt = { "menu", "menuone" }
+option.completeopt = { "menuone", "noselect" }
 option.cursorline = true
 option.termguicolors = true
 option.signcolumn = "yes"
@@ -33,6 +32,8 @@ option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
 option.exrc = true
 option.wrap = false
 option.splitright = true
+option.laststatus = 3
+option.winblend = 10
 
 -- Buffer Settings --
 buffer.fileenconding = "utf-8"
@@ -40,21 +41,28 @@ buffer.fileenconding = "utf-8"
 -- Global Settings --
 global.mapleader = " "
 
--- Key mappings --
-vim.keymap.set({ "n", "i" }, "<Left>", "<Nop>")
-vim.keymap.set({ "n", "i" }, "<Right>", "<Nop>")
-vim.keymap.set({ "n", "i" }, "<Up>", "<Nop>")
-vim.keymap.set({ "n", "i" }, "<Down>", "<Nop>")
-
 -- vim.keymap.set("n", "ts", ":tabNext<CR>")
 -- vim.keymap.set("n", "tn", ":tabnew<CR>")
 -- vim.keymap.set("n", "tc", ":tabclose<CR>")
 -- vim.keymap.set("n", "to", ":tabonly<CR>")
 
-vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>", { silent = true })
+vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set({ "v", "n" }, "<leader>y", "\"+y")
+vim.keymap.set("n", "<c-d>", "<c-d>zz")
+vim.keymap.set("n", "<c-u>", "<c-u>zz")
+vim.keymap.set("n", "<c-f>", "<c-f>zz")
+vim.keymap.set("n", "<c-b>", "<c-b>zz")
+
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+})

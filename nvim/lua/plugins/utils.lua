@@ -20,12 +20,12 @@ return {
         "windwp/nvim-autopairs",
         event = "VeryLazy",
         config = {
-            enable_check_bracket_line = false
+            enable_check_bracket_line = false,
         }
     },
     {
         "ethanholz/nvim-lastplace",
-        config = {}
+        config = true,
     },
     {
         "folke/trouble.nvim",
@@ -37,7 +37,7 @@ return {
             { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>" },
             { "<leader>gR", "<cmd>TroubleToggle lsp_references<cr>" },
         },
-        config = {}
+        config = true,
     },
     {
         "folke/flash.nvim",
@@ -101,15 +101,8 @@ return {
     {
         "ellisonleao/glow.nvim",
         event = "VeryLazy",
-        config = {}
+        config = true,
     },
-    -- {
-    --     "nvim-tree/nvim-tree.lua",
-    --     keys = {
-    --         { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Open the nvim-tree" }
-    --     },
-    --     config = {}
-    -- },
     {
         "nvim-neo-tree/neo-tree.nvim",
         keys = {
@@ -120,52 +113,12 @@ return {
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
         },
-        config = {
-            default_component_configs = {
-                icon = {
-                    folder_empty = "󰜌",
-                    folder_empty_open = "󰜌",
-                },
-                git_status = {
-                    symbols = {
-                        renamed  = "󰁕",
-                        unstaged = "󰄱",
-                    },
-                },
-            },
-            document_symbols = {
-                kinds = {
-                    File = { icon = "󰈙", hl = "Tag" },
-                    Namespace = { icon = "󰌗", hl = "Include" },
-                    Package = { icon = "󰏖", hl = "Label" },
-                    Class = { icon = "󰌗", hl = "Include" },
-                    Property = { icon = "󰆧", hl = "@property" },
-                    Enum = { icon = "󰒻", hl = "@number" },
-                    Function = { icon = "󰊕", hl = "Function" },
-                    String = { icon = "󰀬", hl = "String" },
-                    Number = { icon = "󰎠", hl = "Number" },
-                    Array = { icon = "󰅪", hl = "Type" },
-                    Object = { icon = "󰅩", hl = "Type" },
-                    Key = { icon = "󰌋", hl = "" },
-                    Struct = { icon = "󰌗", hl = "Type" },
-                    Operator = { icon = "󰆕", hl = "Operator" },
-                    TypeParameter = { icon = "󰊄", hl = "Type" },
-                    StaticMethod = { icon = '󰠄 ', hl = 'Function' },
-                }
-            },
-            -- Add this section only if you've configured source selector.
-            source_selector = {
-                sources = {
-                    { source = "filesystem", display_name = " 󰉓 Files " },
-                    { source = "git_status", display_name = " 󰊢 Git " },
-                },
-            },
-        }
+        config = true,
     },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        config = {},
+        config = true,
     },
     {
         "jessekelighine/vindent.vim",
@@ -174,12 +127,12 @@ return {
     {
         'echasnovski/mini.ai',
         event = "VeryLazy",
-        config = {}
+        config = true,
     },
     {
         "echasnovski/mini.comment",
         event = "VeryLazy",
-        config = {}
+        config = true,
     },
     {
         "s1n7ax/nvim-window-picker",
@@ -199,5 +152,5 @@ return {
     {
         "ThePrimeagen/vim-be-good",
         cmd = { "VimBeGood" }
-    }
+    },
 }
