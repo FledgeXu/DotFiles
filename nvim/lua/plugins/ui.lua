@@ -17,7 +17,7 @@ return {
     {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
-        config = {
+        opts = {
             options = {
                 diagnostics = "nvim_lsp"
             }

@@ -14,14 +14,14 @@ return {
             { "<leader>ql", [[<cmd>lua require("persistence").load({ last = true})<cr>]] },
             { "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]] },
         },
-        config = {}
+        config = true,
     },
     {
         "windwp/nvim-autopairs",
         event = "VeryLazy",
-        config = {
+        opts = {
             enable_check_bracket_line = false,
-        }
+        },
     },
     {
         "ethanholz/nvim-lastplace",
@@ -136,7 +136,7 @@ return {
     },
     {
         "s1n7ax/nvim-window-picker",
-        config = {
+        opts = {
             hint = "floating-big-letter",
             filter_rules = {
                 include_current_win = true,
@@ -146,7 +146,13 @@ return {
             }
         },
         keys = {
-            { "<c-w>p", [[<cmd>lua vim.api.nvim_set_current_win(require('window-picker').pick_window())<cr>]] }
+            {
+                "<c-w>p",
+                function()
+                    local window_number = require('window-picker').pick_window()
+                    if window_number then vim.api.nvim_set_current_win(window_number) end
+                end,
+            }
         }
     },
     {
