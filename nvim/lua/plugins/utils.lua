@@ -137,7 +137,6 @@ return {
     {
         "s1n7ax/nvim-window-picker",
         opts = {
-            hint = "floating-big-letter",
             filter_rules = {
                 include_current_win = true,
                 bo = {
@@ -159,4 +158,11 @@ return {
         "ThePrimeagen/vim-be-good",
         cmd = { "VimBeGood" }
     },
+    {
+        "echasnovski/mini.bufremove",
+        event = "VeryLazy",
+        opts = {
+            set_vim_settings = true,
+        },
+   }
 }

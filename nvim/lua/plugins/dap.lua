@@ -7,10 +7,11 @@ return {
         "mfussenegger/nvim-dap-python",
     },
     keys = {
-        { '<F5>',      "<cmd>Telescope dap configurations<cr>" },
+        { '<F5>',      function() require 'telescope'.extensions.dap.configurations {} end },
         { '<F6>',      function() require("dap").step_over() end },
         { '<F7>',      function() require("dap").step_into() end },
         { '<F8>',      function() require("dap").step_out() end },
+        { '<F9>',      "<cmd>DapTerminate<cr>" },
         { '<Leader>b', function() require("dap").toggle_breakpoint() end },
         { '<Leader>B', function() require("dap").set_breakpoint() end },
         { '<Leader>lp',
@@ -49,6 +50,7 @@ return {
             automatic_installation = true,
             handlers = {},
         })
+        require("nvim-dap-virtual-text").setup()
         local dap, dapui = require("dap"), require("dapui")
         dapui.setup()
         dap.listeners.after.event_initialized["dapui_config"] = function()

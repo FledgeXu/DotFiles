@@ -12,7 +12,7 @@ return {
     cmd = { "Telescope" },
     keys = {
         { '<leader>?',       "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
-        { "<leader><space>", "<cmd>lua require('telescope.builtin').buffers()<cr>" },
+        { "<leader><space>", "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<cr>" },
         { "<leader>/",
             function()
                 -- You can pass additional configuration to telescope to change theme, layout, etc.
