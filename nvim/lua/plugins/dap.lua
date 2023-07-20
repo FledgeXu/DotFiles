@@ -4,7 +4,7 @@ return {
         "jay-babu/mason-nvim-dap.nvim",
         "mfussenegger/nvim-dap",
         "theHamsta/nvim-dap-virtual-text",
-        "mfussenegger/nvim-dap-python",
+        -- "mfussenegger/nvim-dap-python",
     },
     keys = {
         { '<F5>',      function() require 'telescope'.extensions.dap.configurations {} end },
@@ -45,6 +45,8 @@ return {
         local daps = {
             "python"
         }
+        vim.fn.sign_define('DapBreakpoint', {text='', texthl='DapUIStop', linehl='', numhl='', culhl = ''})
+        vim.fn.sign_define('DapStopped', {text='', texthl='DapUIPlayPause', linehl='', numhl='', culhl = ''})
         require('mason-nvim-dap').setup({
             ensure_installed = daps,
             automatic_installation = true,

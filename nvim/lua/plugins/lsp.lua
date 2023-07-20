@@ -19,7 +19,12 @@ return {
     },
     config = function()
         local servers = {
-            lua_ls = {},
+            lua_ls = {
+                Lua = {
+                    workspace = { checkThirdParty = false },
+                    telemetry = { enable = false },
+                },
+            },
             pyright = {},
             jsonls = {},
             marksman = {},
@@ -29,17 +34,16 @@ return {
             bashls = {},
             ocamllsp = {},
             taplo = {},
-            ruff_lsp = {
-                Lua = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
-                },
-            },
+            ruff_lsp = {},
         }
         require("neoconf").setup()
         require("neodev").setup()
         require("fidget").setup()
-        require("lspsaga").setup()
+        require("lspsaga").setup({
+            lightbulb = {
+                enable = false,
+            }
+        })
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
@@ -68,12 +72,12 @@ return {
                 vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>",
                     { noremap = true, silent = true })
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-                vim.keymap.set('n', 'gd', "<cmd>Lspsaga goto_definition<CR>", opts)
+                vim.keymap.set('n', 'gd', require "telescope.builtin".lsp_definitions, opts)
                 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
                 vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<CR>", opts)
-                vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, opts)
+                vim.keymap.set('n', '<leader>gi', require "telescope.builtin".lsp_implementations, opts)
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-                vim.keymap.set('n', '<leader>qf', "<cmd>Lspsaga code_action<CR>", opts)
+                vim.keymap.set('n', '<leader>da', require "telescope.builtin".diagnostics, opts)
                 vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
                 vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
                 vim.keymap.set('n', '<space>wl', function()
@@ -81,8 +85,8 @@ return {
                 end, opts)
                 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
                 vim.keymap.set('n', '<space>rn', "<cmd>Lspsaga rename ++project<CR>", opts)
-                vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-                vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+                vim.keymap.set({ 'n', 'v' }, '<leader>ca', "<cmd>Lspsaga code_action<CR>", opts)
+                vim.keymap.set('n', 'gr', require "telescope.builtin".lsp_references, opts)
                 vim.keymap.set('n', '<space>f', function()
                     vim.lsp.buf.format { async = true }
                 end, opts)
