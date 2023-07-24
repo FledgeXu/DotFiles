@@ -1,10 +1,11 @@
 return {
     "rcarriga/nvim-dap-ui",
     dependencies = {
-        "jay-babu/mason-nvim-dap.nvim",
+        -- "jay-babu/mason-nvim-dap.nvim",
         "mfussenegger/nvim-dap",
         "theHamsta/nvim-dap-virtual-text",
-        -- "mfussenegger/nvim-dap-python",
+        "nvim-telescope/telescope-dap.nvim",
+        "mfussenegger/nvim-dap-python",
     },
     keys = {
         { '<F5>',      function() require 'telescope'.extensions.dap.configurations {} end },
@@ -16,6 +17,7 @@ return {
         { '<Leader>B', function() require("dap").set_breakpoint() end },
         { '<Leader>lp',
             function() require("dap").set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
+        { '<leader>fb', function() require 'telescope'.extensions.dap.list_breakpoints {} end },
         { '<Leader>dr', function() require("dap").repl.open() end },
         { '<Leader>dl', function() require("dap").run_last() end },
         {
@@ -42,17 +44,17 @@ return {
         end },
     },
     config = function()
-        local daps = {
-            "python"
-        }
-        vim.fn.sign_define('DapBreakpoint', {text='', texthl='DapUIStop', linehl='', numhl='', culhl = ''})
-        vim.fn.sign_define('DapStopped', {text='', texthl='DapUIPlayPause', linehl='', numhl='', culhl = ''})
-        require('mason-nvim-dap').setup({
-            ensure_installed = daps,
-            automatic_installation = true,
-            handlers = {},
-        })
-        require("nvim-dap-virtual-text").setup()
+        -- local daps = {
+        --     "python"
+        -- }
+        vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapUIStop', linehl = '', numhl = '', culhl = '' })
+        vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapUIPlayPause', linehl = '', numhl = '', culhl = '' })
+        -- require('mason-nvim-dap').setup({
+        --     ensure_installed = daps,
+        --     automatic_installation = true,
+        --     handlers = {},
+        -- })
+        require("nvim-dap-virtual-text").setup({})
         local dap, dapui = require("dap"), require("dapui")
         dapui.setup()
         dap.listeners.after.event_initialized["dapui_config"] = function()

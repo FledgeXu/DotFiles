@@ -158,5 +158,8 @@ return {
         opts = {
             set_vim_settings = true,
         },
-   }
+    },
+    {
+        "tpope/vim-sleuth",
+    }
 }

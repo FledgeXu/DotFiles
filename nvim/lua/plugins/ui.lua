@@ -4,7 +4,11 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
-        config = true,
+        config = function()
+            local auto_theme_custom = require('lualine.themes.auto')
+            auto_theme_custom.normal.c.bg = 'none'
+            require('lualine').setup { options = { theme = auto_theme_custom } }
+        end
     },
     {
         "utilyre/barbecue.nvim",
@@ -74,15 +78,15 @@ return {
         }
     },
     {
-        "norcalli/nvim-colorizer.lua",
-        event = "VeryLazy",
+        "NvChad/nvim-colorizer.lua",
+        event = { "BufReadPost", "BufNewFile" },
         config = true,
     },
     {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim" },
-        confing = true,
+        config = true,
     },
     {
         "RRethy/vim-illuminate",
@@ -91,4 +95,16 @@ return {
             require('illuminate').configure()
         end,
     },
+    {
+        "xiyaowong/transparent.nvim",
+        config = function()
+            require('transparent').setup {
+                extra_groups = {
+                    "NeoTreeNormal",
+                    "NeoTreeNormalNC",
+                    "NormalFloat",
+                },
+            }
+        end,
+    }
 }

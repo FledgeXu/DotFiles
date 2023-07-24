@@ -35,10 +35,16 @@ return {
             ocamllsp = {},
             taplo = {},
             ruff_lsp = {},
+            html = {},
         }
         require("neoconf").setup()
         require("neodev").setup()
-        require("fidget").setup()
+        require("fidget").setup {
+            window = {
+                relative = "editor",
+                blend = 0,
+            }
+        }
         require("lspsaga").setup({
             lightbulb = {
                 enable = false,

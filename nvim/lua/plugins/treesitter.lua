@@ -10,7 +10,7 @@ return {
         ensure_installed = "all",
         -- ignore_install = { "swift", "phpdoc"},
         indent = {
-            enable = true
+            -- enable = true
         },
         highlight = {
             enable = true
