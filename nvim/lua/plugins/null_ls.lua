@@ -6,7 +6,8 @@ return {
     },
     config = function()
         local linters = {
-            "black"
+            "black",
+            "prettier",
         }
         require("mason-null-ls").setup({
             ensure_installed = linters,

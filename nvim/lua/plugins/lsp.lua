@@ -11,7 +11,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "folke/neoconf.nvim",
         "neovim/nvim-lspconfig",
-        "glepnir/lspsaga.nvim",
+        "nvimdev/lspsaga.nvim",
         {
             "j-hui/fidget.nvim",
             tag = 'legacy',
@@ -36,6 +36,9 @@ return {
             taplo = {},
             ruff_lsp = {},
             html = {},
+            tsserver = {},
+            tailwindcss = {},
+            clangd = {},
         }
         require("neoconf").setup()
         require("neodev").setup()

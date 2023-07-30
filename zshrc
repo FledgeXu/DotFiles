@@ -55,7 +55,6 @@ alias la='exa -la --sort=modified'
 alias ps='procs'
 alias cat='bat --theme ansi'
 #alias vi=vim
-alias v="NVIM_APPNAME=mynvim nvim"
 alias vim=nvim
 alias typora="open -a typora"
 alias brave="open -a Brave\ Browser"
@@ -65,6 +64,7 @@ alias vide="/opt/homebrew/bin/neovide --multigrid --frame transparent"
 alias ..="cd .."
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
