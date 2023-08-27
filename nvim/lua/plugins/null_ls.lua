@@ -5,12 +5,13 @@ return {
         "jay-babu/mason-null-ls.nvim",
     },
     config = function()
-        local linters = {
+        local tools = {
             "black",
             "prettier",
+            "eslint_d,"
         }
         require("mason-null-ls").setup({
-            ensure_installed = linters,
+            ensure_installed = tools,
             handlers = {},
         })
         local null_ls = require("null-ls")

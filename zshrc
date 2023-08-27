@@ -47,13 +47,15 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
 setopt autocd
+setopt appendhistory
+setopt share_history
 
 alias rm='trash -F'
 #alias ls='ls -G'
 alias ls='exa --sort=modified --oneline'
 alias la='exa -la --sort=modified'
 alias ps='procs'
-alias cat='bat --theme ansi'
+alias cat='bat --theme 1337'
 #alias vi=vim
 alias vim=nvim
 alias typora="open -a typora"
@@ -183,3 +185,9 @@ fi
 # To initialize zoxide, add this to your configuration (usually ~/.zshrc):
 #
 eval "$(zoxide init zsh)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="$HOME/.local/bin/depot_tools:${PATH}"
+export PATH="$HOME/.local/bin/:${PATH}"
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

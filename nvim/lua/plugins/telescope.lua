@@ -8,6 +8,13 @@ return {
             build = "make",
         },
         "nvim-telescope/telescope-dap.nvim",
+        {
+            "nvim-telescope/telescope-media-files.nvim",
+            dependencies = {
+                'nvim-lua/popup.nvim',
+                'nvim-lua/plenary.nvim',
+            },
+        }
     },
     cmd = { "Telescope" },
     keys = {
@@ -22,10 +29,12 @@ return {
                 })
             end
         },
-        { '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>" },
-        { '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
+        { '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>" },
+        { '<leader>fg',
+            "<cmd>lua require('telescope.builtin').live_grep( { hidden = true, additional_args = { '--fixed-strings' } })<cr>" },
         { '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>" },
-        { '<leader>fp', "<cmd>lua require('telescope.builtin').builtin()<cr>" },
+        { '<leader>fb', "<cmd>lua require('telescope.builtin').builtin()<cr>" },
+        { '<leader>fp', "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>" },
         { '<leader>fm', "<cmd>lua require('telescope.builtin').marks()<cr>" },
         { '<leader>qf', "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
         { '<leader>km', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
@@ -40,10 +49,15 @@ return {
                     override_file_sorter = true,    -- override the file sorter
                     case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                     -- the default case_mode is "smart_case"
+                },
+                media_files = {
+                    filetypes = { "png", "webp", "jpg", "jpeg", "svg" },
+                    find_cmd = "rg",
                 }
             }
         }
         require('telescope').load_extension('fzf')
         require('telescope').load_extension('dap')
+        require('telescope').load_extension('media_files')
     end
 }

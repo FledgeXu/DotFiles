@@ -20,15 +20,16 @@ return {
     config = function()
         local servers = {
             lua_ls = {
-                Lua = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
+                settings = {
+                    Lua = {
+                        workspace = { checkThirdParty = false },
+                        telemetry = { enable = false },
+                    },
                 },
             },
             pyright = {},
             jsonls = {},
             marksman = {},
-            volar = {},
             dockerls = {},
             docker_compose_language_service = {},
             bashls = {},
@@ -36,9 +37,10 @@ return {
             taplo = {},
             ruff_lsp = {},
             html = {},
-            tsserver = {},
-            tailwindcss = {},
+            -- tsserver = {},
+            -- tailwindcss = {},
             clangd = {},
+            -- volar = {},
         }
         require("neoconf").setup()
         require("neodev").setup()
@@ -56,15 +58,16 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
-            handlers = {
-                function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup {
-                        capabilities = require('cmp_nvim_lsp').default_capabilities(),
-                        settings = servers[server_name],
-                    }
-                end,
-            }
         })
+
+        for server, config in pairs(servers) do
+            require("lspconfig")[server].setup(
+                vim.tbl_deep_extend("keep",
+                    { on_attach = on_attach, capabilities = require('cmp_nvim_lsp').default_capabilities() },
+                    config
+                )
+            )
+        end
         -- Enable lsconfig --
         -- Use LspAttach autocommand to only map the following keys
         -- after the language server attaches to the current buffer

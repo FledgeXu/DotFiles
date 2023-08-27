@@ -4,6 +4,7 @@ return {
     build = ":TSUpdate",
     dependencies = {
         "nvim-treesitter/playground",
+        "nvim-treesitter/nvim-treesitter-textobjects",
     },
     main = "nvim-treesitter.configs",
     opts = {
@@ -17,6 +18,15 @@ return {
         },
         playground = {
             enable = true,
+        },
+        textobjects = {
+            select = {
+                enable = true,
+                keymaps = {
+                    ["af"] = "@function.outer",
+                    ["if"] = "@function.inner",
+                },
+            },
         },
     }
 }
