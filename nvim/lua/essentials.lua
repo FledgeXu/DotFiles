@@ -36,7 +36,7 @@ option.laststatus = 3
 option.winblend = 10
 
 -- Buffer Settings --
-buffer.fileenconding = "utf-8"
+buffer.fileenconding = { "utf-8" }
 
 -- Global Settings --
 global.mapleader = " "

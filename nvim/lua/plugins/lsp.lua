@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    cmd = { "Mason", "Neoconf" },
+    cmd = { "Mason", "MasonUpdate" },
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         {
@@ -9,7 +9,6 @@ return {
         },
         "folke/neodev.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "folke/neoconf.nvim",
         "neovim/nvim-lspconfig",
         "nvimdev/lspsaga.nvim",
         {
@@ -36,13 +35,13 @@ return {
             ocamllsp = {},
             taplo = {},
             ruff_lsp = {},
+            hls = {},
             html = {},
             -- tsserver = {},
             -- tailwindcss = {},
             clangd = {},
             -- volar = {},
         }
-        require("neoconf").setup()
         require("neodev").setup()
         require("fidget").setup {
             window = {

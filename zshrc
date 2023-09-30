@@ -190,4 +190,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export PATH="$HOME/.local/bin/depot_tools:${PATH}"
 export PATH="$HOME/.local/bin/:${PATH}"
+export PATH="$HOME/.cargo/bin/:${PATH}"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+[ -f "/Users/fledge/.ghcup/env" ] && source "/Users/fledge/.ghcup/env" # ghcup-env
