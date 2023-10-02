@@ -59,6 +59,11 @@ vim.keymap.set("n", "<c-u>", "<c-u>zz")
 vim.keymap.set("n", "<c-f>", "<c-f>zz")
 vim.keymap.set("n", "<c-b>", "<c-b>zz")
 
+vim.keymap.set({ "n", "v", "i" }, "<Up>", "<Nop>")
+vim.keymap.set({ "n", "v", "i" }, "<Down>", "<Nop>")
+vim.keymap.set({ "n", "v", "i" }, "<Left>", "<Nop>")
+vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>")
+
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
