@@ -188,9 +188,17 @@ eval "$(zoxide init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PATH="$HOME/.local/bin/depot_tools:${PATH}"
+# export PATH="$HOME/.local/bin/depot_tools:${PATH}"
 export PATH="$HOME/.local/bin/:${PATH}"
 export PATH="$HOME/.cargo/bin/:${PATH}"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f "/Users/fledge/.ghcup/env" ] && source "/Users/fledge/.ghcup/env" # ghcup-env
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi

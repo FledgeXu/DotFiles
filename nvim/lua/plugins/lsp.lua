@@ -37,6 +37,7 @@ return {
             ruff_lsp = {},
             hls = {},
             html = {},
+            rust_analyzer = {},
             -- tsserver = {},
             -- tailwindcss = {},
             clangd = {},
