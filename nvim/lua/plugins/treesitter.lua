@@ -7,6 +7,14 @@ return {
     },
     main = "nvim-treesitter.configs",
     opts = {
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = "vv", -- set to `false` to disable one of the mappings
+                node_incremental = "v",
+                node_decremental = "V",
+            },
+        },
         ensure_installed = "all",
         -- ignore_install = { "swift", "phpdoc"},
         indent = {
