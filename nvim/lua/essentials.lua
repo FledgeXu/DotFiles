@@ -72,3 +72,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = highlight_group,
     pattern = '*',
 })
+
+vim.api.nvim_create_user_command("UpdateAll", function()
+    vim.cmd("Lazy update")
+    vim.cmd("MasonUpdate")
+end, {})
