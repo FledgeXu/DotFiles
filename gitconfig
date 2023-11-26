@@ -1,7 +1,7 @@
 [user]
 	name = Fledge Shiu
 	email = xzk0701@gmail.com
-	signingkey = 74628373B2E9C4BB6E4169F73EFD2EC25B19C032
+	signingkey = 06653E25FAB12AA63E7C38F7AE9D5B70A2403C66
 [core]
 	editor = nvim
 	excludesfile = /Users/fledge/.gitignore
