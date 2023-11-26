@@ -74,6 +74,12 @@ alias localip="ipconfig getifaddr en0"
 # Flush Directory Service cache
 alias flushdns="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+fi
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
@@ -211,3 +217,4 @@ then
   autoload -Uz compinit
   compinit
 fi
+
