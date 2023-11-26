@@ -65,6 +65,15 @@ alias vide="/opt/homebrew/bin/neovide --multigrid --frame transparent"
 
 alias ..="cd .."
 
+# Delete Apple System Logs
+alias dasl="sudo rm -rf /private/var/log/asl/*.asl"
+# Get WAN IP
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# Get local IP
+alias localip="ipconfig getifaddr en0"
+# Flush Directory Service cache
+alias flushdns="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
