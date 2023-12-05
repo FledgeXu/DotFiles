@@ -74,6 +74,8 @@ alias localip="ipconfig getifaddr en0"
 # Flush Directory Service cache
 alias flushdns="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
+alias refreshcard="gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
+
 export PLAN9=/Users/fledge/Developer/plan9/plan9port
 export PATH=$PATH:$PLAN9/bin
 
