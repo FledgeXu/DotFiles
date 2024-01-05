@@ -229,4 +229,6 @@ function update-all() {
     rustup upgrade
     opam update && opam upgrade -y
     ghcup upgrade
+    ghcup install ghc && ghcup install cabal && ghcup install stack
+    sdk update && sdk upgrade
 }
