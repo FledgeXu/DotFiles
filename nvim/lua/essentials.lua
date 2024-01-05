@@ -45,6 +45,7 @@ global.mapleader = " "
 -- vim.keymap.set("n", "tn", ":tabnew<CR>")
 -- vim.keymap.set("n", "tc", ":tabclose<CR>")
 -- vim.keymap.set("n", "to", ":tabonly<CR>")
+vim.keymap.set("n", "<F10>", "<cmd>w<CR><cmd>make<CR>")
 
 vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
@@ -77,3 +78,5 @@ vim.api.nvim_create_user_command("UpdateAll", function()
     vim.cmd("Lazy update")
     vim.cmd("MasonUpdate")
 end, {})
+-- vim.diagnostic.config({ virtual_text = false })
+--

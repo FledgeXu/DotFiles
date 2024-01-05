@@ -29,6 +29,11 @@ return {
             cmp_autopairs.on_confirm_done()
         )
         cmp.setup({
+            view = {
+                docs = {
+                    auto_open = false
+                },
+            },
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
@@ -66,6 +71,13 @@ return {
                 end, { "i", "s" }),
                 ['<C-d>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-g>'] = function()
+                    if cmp.visible_docs() then
+                        cmp.close_docs()
+                    else
+                        cmp.open_docs()
+                    end
+                end,
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },

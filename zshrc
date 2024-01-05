@@ -61,7 +61,7 @@ alias vim=nvim
 alias typora="open -a typora"
 alias brave="open -a Brave\ Browser"
 alias finder="open -a finder"
-alias vide="/opt/homebrew/bin/neovide --multigrid --frame transparent"
+alias vide="/opt/homebrew/bin/neovide --frame transparent"
 
 alias ..="cd .."
 
@@ -74,7 +74,7 @@ alias localip="ipconfig getifaddr en0"
 # Flush Directory Service cache
 alias flushdns="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
-alias refreshcard="gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
+alias refreshcard='gpg-connect-agent killagent /bye && gpg-connect-agent "scd serialno" "learn --force" /bye && gpg --card-status'
 
 export PLAN9=/Users/fledge/Developer/plan9/plan9port
 export PATH=$PATH:$PLAN9/bin
@@ -208,7 +208,7 @@ eval "$(zoxide init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# export PATH="$HOME/.local/bin/depot_tools:${PATH}"
+export PATH="$HOME/.local/bin/depot_tools:${PATH}"
 export PATH="$HOME/.local/bin/:${PATH}"
 export PATH="$HOME/.cargo/bin/:${PATH}"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -223,3 +223,10 @@ then
   compinit
 fi
 
+function update-all() {
+    brew update && brew upgrade
+    zinit update
+    rustup upgrade
+    opam update && opam upgrade -y
+    ghcup upgrade
+}

@@ -191,5 +191,14 @@ return {
                 suffix_next = 'n',             -- Suffix to search with "next" method
             },
         }
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        keys = {
+            { "<A-d>", [[<cmd>ToggleTerm<cr>]] },
+        },
+        config = true,
     }
+
+
 }

@@ -42,6 +42,8 @@ return {
             -- tailwindcss = {},
             clangd = {},
             -- volar = {},
+            -- jdtls = {},
+            cmake = {},
         }
         require("neodev").setup()
         require("fidget").setup {
@@ -99,6 +101,7 @@ return {
                 vim.keymap.set('n', '<space>rn', "<cmd>Lspsaga rename ++project<CR>", opts)
                 vim.keymap.set({ 'n', 'v' }, '<leader>ca', "<cmd>Lspsaga code_action<CR>", opts)
                 vim.keymap.set('n', 'gr', require "telescope.builtin".lsp_references, opts)
+                vim.keymap.set('n', 'sd', "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
                 -- vim.keymap.set('n', '<space>f', function()
                 --     vim.lsp.buf.format { async = true }
                 -- end, opts)

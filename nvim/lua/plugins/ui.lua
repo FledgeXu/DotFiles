@@ -85,7 +85,14 @@ return {
     {
         "NvChad/nvim-colorizer.lua",
         event = { "BufReadPost", "BufNewFile" },
-        config = true,
+        opts = {
+            {
+                'css',
+                'javascript',
+                'typescript',
+                'html',
+            }
+        },
     },
     {
         "folke/todo-comments.nvim",
@@ -110,6 +117,11 @@ return {
                     "NormalFloat",
                 },
             }
+            if vim.g.neovide then
+                vim.cmd("TransparentDisable")
+            else
+                vim.cmd("TransparentEnable")
+            end
         end,
     }
 }
