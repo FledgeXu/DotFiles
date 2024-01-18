@@ -32,7 +32,10 @@ zinit light-mode for \
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
-
+zinit snippet OMZP::colored-man-pages
+zinit snippet OMZP::git
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::correction.zsh 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -43,14 +46,14 @@ zle -N down-line-or-beginning-search
 
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
-setopt autocd
-setopt appendhistory
+# zstyle ':completion:*' menu select
+# zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+# autoload -Uz compinit && compinit
+# setopt autocd
+# setopt appendhistory
 setopt share_history
 
-alias rm='trash -F'
+alias rm='trash'
 #alias ls='ls -G'
 alias ls='exa --sort=modified --oneline'
 alias la='exa -la --sort=modified'
@@ -64,6 +67,10 @@ alias finder="open -a finder"
 alias vide="/opt/homebrew/bin/neovide --frame transparent"
 
 alias ..="cd .."
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Delete Apple System Logs
 alias dasl="sudo rm -rf /private/var/log/asl/*.asl"
@@ -209,8 +216,8 @@ eval "$(zoxide init zsh)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="$HOME/.local/bin/depot_tools:${PATH}"
-export PATH="$HOME/.local/bin/:${PATH}"
-export PATH="$HOME/.cargo/bin/:${PATH}"
+export PATH="$HOME/.local/bin:${PATH}"
+export PATH="$HOME/.cargo/bin:${PATH}"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f "/Users/fledge/.ghcup/env" ] && source "/Users/fledge/.ghcup/env" # ghcup-env

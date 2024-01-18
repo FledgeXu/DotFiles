@@ -34,6 +34,7 @@ option.wrap = false
 option.splitright = true
 option.laststatus = 3
 option.winblend = 10
+global.netrw_liststyle = 3
 
 -- Buffer Settings --
 buffer.fileenconding = { "utf-8" }
@@ -49,7 +50,7 @@ vim.keymap.set("n", "<F10>", "<cmd>w<CR><cmd>make<CR>")
 
 vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
-vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>")
+-- vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

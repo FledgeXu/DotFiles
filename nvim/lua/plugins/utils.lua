@@ -7,16 +7,6 @@ return {
         },
     },
     {
-        "folke/persistence.nvim",
-        event = "BufReadPre",
-        keys = {
-            { "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]] },
-            { "<leader>ql", [[<cmd>lua require("persistence").load({ last = true})<cr>]] },
-            { "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]] },
-        },
-        config = true,
-    },
-    {
         "windwp/nvim-autopairs",
         event = "VeryLazy",
         opts = {
@@ -151,12 +141,10 @@ return {
         }
     },
     {
-        "ThePrimeagen/vim-be-good",
-        cmd = { "VimBeGood" }
-    },
-    {
         "echasnovski/mini.bufremove",
-        event = "VeryLazy",
+        keys = {
+            { "<leader>bo", "<cmd>lua MiniBufremove.unshow()<cr>" },
+        },
         opts = {
             set_vim_settings = true,
         },
@@ -165,15 +153,15 @@ return {
         "tpope/vim-sleuth",
     },
     {
-        'pwntester/octo.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = function()
-            require "octo".setup()
-        end
+        -- 'pwntester/octo.nvim',
+        -- requires = {
+        --     'nvim-lua/plenary.nvim',
+        --     'nvim-telescope/telescope.nvim',
+        --     'nvim-tree/nvim-web-devicons',
+        -- },
+        -- config = function()
+        --     require "octo".setup()
+        -- end
     },
     {
         "echasnovski/mini.surround",
@@ -199,6 +187,4 @@ return {
         },
         config = true,
     }
-
-
 }

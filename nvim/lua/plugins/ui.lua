@@ -21,11 +21,11 @@ return {
     {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
-        opts = {
-            options = {
-                diagnostics = "nvim_lsp"
-            }
-        }
+        -- opts = {
+        --     options = {
+        --         diagnostics = "nvim_lsp"
+        --     }
+        -- }
     },
     {
         "goolord/alpha-nvim",

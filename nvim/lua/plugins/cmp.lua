@@ -46,13 +46,21 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ['<c-n>'] =
+                    cmp.mapping(function()
+                        luasnip.jump(1)
+                    end, { "i", "s" }),
+                ['<c-p>'] =
+                    cmp.mapping(function(fallback)
+                        if luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                        -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-                        -- they way you will only jump inside the snippet region
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
@@ -63,8 +71,6 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
                     else
                         fallback()
                     end
@@ -86,8 +92,8 @@ return {
                 -- { name = 'ultisnips' }, -- For ultisnips users.
                 -- { name = 'snippy' }, -- For snippy users.
             }, {
-                { name = 'buffer' },
                 { name = 'path' },
+                { name = 'buffer' },
             }),
             experimental = {
                 ghost_text = true,
