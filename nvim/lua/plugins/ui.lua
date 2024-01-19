@@ -123,5 +123,10 @@ return {
                 vim.cmd("TransparentEnable")
             end
         end,
+    },
+    {
+        'dgagn/diagflow.nvim',
+        event = 'LspAttach',
+        opts = {}
     }
 }

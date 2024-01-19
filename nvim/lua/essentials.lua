@@ -20,7 +20,7 @@ option.smartcase = true
 option.completeopt = { "menuone", "noselect" }
 option.cursorline = true
 option.termguicolors = true
-option.signcolumn = "yes"
+option.signcolumn = "yes:1"
 option.autoread = true
 option.title = true
 option.swapfile = false
@@ -79,5 +79,3 @@ vim.api.nvim_create_user_command("UpdateAll", function()
     vim.cmd("Lazy update")
     vim.cmd("MasonUpdate")
 end, {})
--- vim.diagnostic.config({ virtual_text = false })
---
