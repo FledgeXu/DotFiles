@@ -49,7 +49,7 @@ alias rm='trash'
 alias ls='exa --sort=modified --oneline'
 alias la='exa -la --sort=modified'
 alias ps='procs'
-alias cat='bat --theme 1337'
+alias cat='bat --theme Github'
 #alias vi=vim
 alias vim=nvim
 alias typora="open -a typora"
