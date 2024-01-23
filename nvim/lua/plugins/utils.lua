@@ -186,5 +186,5 @@ return {
             { "<A-d>", [[<cmd>ToggleTerm<cr>]] },
         },
         config = true,
-    }
+    },
 }

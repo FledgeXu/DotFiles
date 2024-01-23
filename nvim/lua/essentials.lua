@@ -34,6 +34,12 @@ option.wrap = false
 option.splitright = true
 option.laststatus = 3
 option.winblend = 10
+option.foldcolumn = '1'
+option.foldlevel = 99
+option.foldlevelstart = 99
+option.foldenable = true
+
+
 global.netrw_liststyle = 3
 
 -- Buffer Settings --

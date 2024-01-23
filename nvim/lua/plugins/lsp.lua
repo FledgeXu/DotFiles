@@ -15,6 +15,7 @@ return {
             "j-hui/fidget.nvim",
             tag = 'legacy',
         },
+        "mfussenegger/nvim-jdtls",
     },
     config = function()
         local servers = {
