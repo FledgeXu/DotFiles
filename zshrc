@@ -46,8 +46,8 @@ setopt share_history
 
 alias rm='trash'
 #alias ls='ls -G'
-alias ls='exa --sort=modified --oneline'
-alias la='exa -la --sort=modified'
+alias ls='eza --sort=modified --oneline'
+alias la='eza -la --sort=modified'
 alias ps='procs'
 alias cat='bat --theme 1337'
 #alias vi=vim

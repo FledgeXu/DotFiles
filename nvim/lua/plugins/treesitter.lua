@@ -15,7 +15,8 @@ return {
                 node_decremental = "V",
             },
         },
-        ensure_installed = "all",
+        -- ensure_installed = "all",
+        ensure_installed = {"lua"},
         -- ignore_install = { "swift", "phpdoc"},
         indent = {
             -- enable = true

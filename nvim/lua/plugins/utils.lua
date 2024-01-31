@@ -181,7 +181,7 @@ return {
         }
     },
     {
-        'akinsho/toggleterm.nvim',
+        "akinsho/toggleterm.nvim",
         keys = {
             { "<A-d>", [[<cmd>ToggleTerm<cr>]] },
         },
