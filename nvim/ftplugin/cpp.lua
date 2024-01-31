@@ -8,7 +8,7 @@ if next(vim.fs.find({ ".nvim.lua", ".nvimrc", ".exrc" })) == nil then
     local dap = require('dap')
     dap.adapters.lldb = {
         type = 'executable',
-        command = '/opt/homebrew/Cellar/llvm/17.0.6_1/bin/lldb-vscode', -- adjust as needed, must be absolute path
+        command = vim.fs.find("lldb-vscode", { path = "/opt/homebrew/Cellar/llvm/" })[1],
         name = 'lldb'
     }
 
