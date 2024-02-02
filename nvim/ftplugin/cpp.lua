@@ -1,5 +1,5 @@
 -- Set up make args
-if next(vim.fs.find('CMakeLists.txt', { upward = true })) ~= nil then
+if next(vim.fs.find('CMakeLists.txt', { upward = true, stop = vim.fn.getcwd() })) ~= nil then
     vim.opt.makeprg = [[cmake --build build]]
 end
 
@@ -23,7 +23,7 @@ if next(vim.fs.find({ ".nvim.lua", ".nvimrc", ".exrc" })) == nil then
             cwd = '${workspaceFolder}',
             stopOnEntry = false,
             args = function()
-                return { vim.fn.input("program args: ") }
+                return { vim.fn.input("Program args: ") }
             end
         },
     }
