@@ -15,17 +15,18 @@ return {
             "j-hui/fidget.nvim",
             tag = 'legacy',
         },
-        "mfussenegger/nvim-jdtls",
     },
     config = function()
         local servers = {
             lua_ls = {
-                settings = {
-                    Lua = {
-                        workspace = { checkThirdParty = false },
-                        telemetry = { enable = false },
+                config = {
+                    settings = {
+                        Lua = {
+                            workspace = { checkThirdParty = false },
+                            telemetry = { enable = false },
+                        },
                     },
-                },
+                }
             },
             pyright = {},
             jsonls = {},
@@ -39,11 +40,11 @@ return {
             hls = {},
             html = {},
             rust_analyzer = {},
-            -- tsserver = {},
+            tsserver = { install_only = true },
             -- tailwindcss = {},
             clangd = {},
-            -- volar = {},
-            -- jdtls = {},
+            volar = { install_only = true },
+            jdtls = { install_only = true },
             cmake = {},
         }
         require("neodev").setup()
@@ -64,12 +65,14 @@ return {
         })
 
         for server, config in pairs(servers) do
-            require("lspconfig")[server].setup(
-                vim.tbl_deep_extend("keep",
-                    { on_attach = on_attach, capabilities = require('cmp_nvim_lsp').default_capabilities() },
-                    config
+            if not config["install_only"] then
+                require("lspconfig")[server].setup(
+                    vim.tbl_deep_extend("keep",
+                        { on_attach = on_attach, capabilities = require('cmp_nvim_lsp').default_capabilities() },
+                        config['config'] and config['config'] or {}
+                    )
                 )
-            )
+            end
         end
         -- Enable lsconfig --
         -- Use LspAttach autocommand to only map the following keys
