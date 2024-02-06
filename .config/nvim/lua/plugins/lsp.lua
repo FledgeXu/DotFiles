@@ -60,6 +60,15 @@ return {
             }
         })
         require("mason").setup()
+        -- local install_servers = {}
+        -- for server, config in pairs(servers) do
+        --     if not config["config_only"] then
+        --         table.insert(install_servers, server)
+        --     end
+        -- end
+        -- require("mason-lspconfig").setup({
+        --     ensure_installed = install_servers,
+        -- })
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
         })
