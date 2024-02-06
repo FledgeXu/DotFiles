@@ -17,6 +17,7 @@ return {
         "nvimdev/lspsaga.nvim",
         {
             "j-hui/fidget.nvim",
+            event = { "BufReadPost", "BufNewFile" },
             opts = {
                 notification = {
                     window = {
@@ -58,12 +59,6 @@ return {
             cmake = {},
         }
         require("neodev").setup()
-        require("fidget").setup {
-            window = {
-                relative = "editor",
-                blend = 0,
-            }
-        }
         require("lspsaga").setup({
             lightbulb = {
                 enable = false,
