@@ -4,6 +4,10 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         {
+            "nvim-jdtls",
+            ft = { 'java' },
+        },
+        {
             "williamboman/mason.nvim",
             build = ":MasonUpdate",
         },
@@ -13,7 +17,13 @@ return {
         "nvimdev/lspsaga.nvim",
         {
             "j-hui/fidget.nvim",
-            tag = 'legacy',
+            opts = {
+                notification = {
+                    window = {
+                        winblend = 0,
+                    }
+                }
+            }
         },
     },
     config = function()
