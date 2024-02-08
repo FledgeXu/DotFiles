@@ -94,6 +94,7 @@ return {
             }, {
                 { name = 'path' },
                 { name = 'buffer' },
+                { name = 'cmdline' },
             }),
             experimental = {
                 ghost_text = true,
@@ -108,8 +109,7 @@ return {
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'path' }
-            }, {
+                { name = 'path' },
                 { name = 'cmdline' }
             })
         })

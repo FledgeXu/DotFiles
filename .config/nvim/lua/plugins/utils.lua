@@ -95,16 +95,16 @@ return {
         config = true,
     },
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        keys = {
-            { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Open the neo-tree" }
-        },
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        },
-        config = true,
+        -- "nvim-neo-tree/neo-tree.nvim",
+        -- keys = {
+        --     { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Open the neo-tree" }
+        -- },
+        -- dependencies = {
+        --     "nvim-lua/plenary.nvim",
+        --     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        --     "MunifTanjim/nui.nvim",
+        -- },
+        -- config = true,
     },
     {
         "folke/which-key.nvim",
