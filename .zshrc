@@ -33,7 +33,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit ice lucid wait'0'
-zinit light joshskidmore/zsh-fzf-history-search
+# zinit light joshskidmore/zsh-fzf-history-search
 zinit snippet OMZP::colored-man-pages
 zinit snippet OMZP::git
 zinit snippet OMZL::completion.zsh

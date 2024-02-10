@@ -2,6 +2,7 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
+        "/onsails/lspkind.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -13,10 +14,12 @@ return {
         },
         "saadparwaiz1/cmp_luasnip",
     },
+
     config = function()
         local luasnip = require("luasnip")
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
+        local lspkind = require('lspkind')
+
         require("luasnip.loaders.from_vscode").lazy_load()
         local has_words_before = function()
             unpack = unpack or table.unpack
@@ -24,11 +27,10 @@ return {
             return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
         end
 
-        cmp.event:on(
-            'confirm_done',
-            cmp_autopairs.on_confirm_done()
-        )
         cmp.setup({
+            formatting = {
+                format = lspkind.cmp_format(),
+            },
             view = {
                 docs = {
                     auto_open = false
