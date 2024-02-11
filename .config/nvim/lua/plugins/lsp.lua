@@ -101,8 +101,6 @@ return {
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
                 local opts = { buffer = ev.buf }
                 -- We need a specific threat for the "term_toggle", it must be a global mapping, not a buffer mapping.
-                vim.keymap.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>",
-                    { noremap = true, silent = true })
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
                 vim.keymap.set('n', 'gd', require "telescope.builtin".lsp_definitions, opts)
                 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)

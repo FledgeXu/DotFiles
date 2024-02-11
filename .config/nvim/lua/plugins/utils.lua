@@ -150,9 +150,9 @@ return {
     },
     {
         "akinsho/toggleterm.nvim",
-        keys = {
-            { "<A-d>", [[<cmd>ToggleTerm<cr>]] },
-        },
-        config = true,
+        event = "VeryLazy",
+        opts = {
+            open_mapping = [[<A-d>]],
+        }
     },
 }
