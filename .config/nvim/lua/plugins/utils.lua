@@ -20,7 +20,14 @@ return {
             { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>" },
             { "<leader>gR", "<cmd>TroubleToggle lsp_references<cr>" },
         },
-        config = true,
+        event = "VeryLazy",
+        config = function()
+            require("trouble").setup()
+            vim.keymap.set("n", "[q", function() require("trouble").previous({ skip_groups = true, jump = true }) end)
+            vim.keymap.set("n", "]q", function() require("trouble").next({ skip_groups = true, jump = true }) end)
+            vim.keymap.set("n", "[Q", function() require("trouble").first({ skip_groups = true, jump = true }) end)
+            vim.keymap.set("n", "]Q", function() require("trouble").last({ skip_groups = true, jump = true }) end)
+        end,
     },
     {
         "folke/flash.nvim",
@@ -122,27 +129,7 @@ return {
         }
     },
     {
-        "echasnovski/mini.bufremove",
-        keys = {
-            { "<leader>bo", "<cmd>lua MiniBufremove.unshow()<cr>" },
-        },
-        opts = {
-            set_vim_settings = true,
-        },
-    },
-    {
         "tpope/vim-sleuth",
-    },
-    {
-        -- 'pwntester/octo.nvim',
-        -- requires = {
-        --     'nvim-lua/plenary.nvim',
-        --     'nvim-telescope/telescope.nvim',
-        --     'nvim-tree/nvim-web-devicons',
-        -- },
-        -- config = function()
-        --     require "octo".setup()
-        -- end
     },
     {
         "echasnovski/mini.surround",
