@@ -1,7 +1,7 @@
 if vim.g.neovide then
-    vim.o.guifont = "Cascadia Code:h15:l"
-    vim.g.neovide_transparency = 0.9
-    vim.g.transparency = 0.9
+    vim.o.guifont = "Cascadia Code PL:h15:l"
+    vim.g.neovide_transparency = 0.95
+    vim.g.transparency = 0.95
     vim.g.neovide_no_idle = true
     vim.g.neovide_input_macos_alt_is_meta = true
     vim.g.neovide_input_use_logo = 1                     -- enable use of the logo (cmd) key

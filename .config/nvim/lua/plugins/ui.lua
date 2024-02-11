@@ -22,12 +22,24 @@ return {
         "goolord/alpha-nvim",
         config = function()
             local alpha = require("alpha")
-            local theta = require("alpha.themes.theta")
+            -- local theta = require("alpha.themes.theta")
             local dashboard = require("alpha.themes.dashboard")
-            table.insert(theta.buttons.val,
-                dashboard.button("SPC q s", "󰑓  Restore the session",
-                    [[<cmd>lua require("persistence").load({ last = true })<cr>]]))
-            alpha.setup(theta.config)
+            -- table.insert(theta.buttons.val,
+            --     dashboard.button("SPC q s", "󰑓  Restore the session",
+            --         [[<cmd>lua require("persistence").load({ last = true })<cr>]]))
+            dashboard.section.header.val = {
+                "                                                     ",
+                "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+                "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+                "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+                "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+                "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+                "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+                "                                                     ",
+            }
+            -- dashboard.section.buttons.val = {
+            -- }
+            alpha.setup(dashboard.config)
         end
     },
     {
