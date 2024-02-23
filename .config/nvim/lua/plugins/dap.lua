@@ -9,6 +9,7 @@ return {
     },
     keys = {
         { '<F5>',      function() require 'telescope'.extensions.dap.configurations {} end },
+        { '<F4>',      function() require 'telescope'.continue() end },
         { '<F6>',      function() require("dap").step_over() end },
         { '<F7>',      function() require("dap").step_into() end },
         { '<F8>',      function() require("dap").step_out() end },

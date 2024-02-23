@@ -38,7 +38,35 @@ return {
         { '<leader>fm', "<cmd>lua require('telescope.builtin').marks()<cr>" },
         { '<leader>qf', "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
         { '<leader>km', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
-        { '<c-p>',      "<cmd>lua require('telescope.builtin').commands()<cr>" },
+        {
+            '<leader>fr', function()
+            local text = vim.trim(vim.fn.getreg('"'))
+            local builtin = require("telescope.builtin")
+            builtin.grep_string({ search = text })
+        end
+        },
+        {
+            '<leader>fw', function()
+            local text = vim.fn.expand("<cword>")
+            local builtin = require("telescope.builtin")
+            builtin.grep_string({ search = text })
+        end
+        },
+        {
+            '<leader>fW', function()
+            local text = vim.fn.expand("<cWORD>")
+            local builtin = require("telescope.builtin")
+            builtin.grep_string({ search = text })
+        end
+        },
+        {
+            '<leader>fr', function()
+            local text = vim.fn.getreg('"')
+            local builtin = require("telescope.builtin")
+            builtin.grep_string({ search = text })
+        end
+        },
+        { '<c-p>', "<cmd>lua require('telescope.builtin').commands()<cr>" },
     },
     config = function()
         require('telescope').setup {
@@ -54,6 +82,9 @@ return {
                     filetypes = { "png", "webp", "jpg", "jpeg", "svg" },
                     find_cmd = "rg",
                 }
+            },
+            defaults = {
+                file_ignore_patterns = { ".git/" },
             }
         }
         require('telescope').load_extension('fzf')

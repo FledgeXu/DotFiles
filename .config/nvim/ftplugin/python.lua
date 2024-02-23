@@ -1,6 +1,6 @@
 vim.o.makeprg = [[pyright ./**/*.py]]
 
-if next(vim.fs.find({ ".nvim.lua", ".nvimrc", ".exrc" }, { upward = true, stop = vim.fn.getcwd() })) == nil then
+if require('dap').configurations.python == nil then
     require('dap-python').setup()
     require('dap-python').test_runner = 'pytest'
 end

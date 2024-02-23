@@ -23,10 +23,26 @@ return {
         event = "VeryLazy",
         config = function()
             require("trouble").setup()
-            vim.keymap.set("n", "[q", function() require("trouble").previous({ skip_groups = true, jump = true }) end)
-            vim.keymap.set("n", "]q", function() require("trouble").next({ skip_groups = true, jump = true }) end)
-            vim.keymap.set("n", "[Q", function() require("trouble").first({ skip_groups = true, jump = true }) end)
-            vim.keymap.set("n", "]Q", function() require("trouble").last({ skip_groups = true, jump = true }) end)
+            vim.keymap.set("n", "[q",
+                function()
+                    require("trouble").previous({ skip_groups = true, jump = true })
+                    vim.cmd [[norm! zz]]
+                end)
+            vim.keymap.set("n", "]q",
+                function()
+                    require("trouble").next({ skip_groups = true, jump = true })
+                    vim.cmd [[norm! zz]]
+                end)
+            vim.keymap.set("n", "[Q",
+                function()
+                    require("trouble").first({ skip_groups = true, jump = true })
+                    vim.cmd [[norm! zz]]
+                end)
+            vim.keymap.set("n", "]Q",
+                function()
+                    require("trouble").last({ skip_groups = true, jump = true })
+                    vim.cmd [[norm! zz]]
+                end)
         end,
     },
     {
@@ -94,11 +110,11 @@ return {
         event = "VeryLazy",
         config = true,
     },
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        config = true,
-    },
+    -- {
+    --     "folke/which-key.nvim",
+    --     event = "VeryLazy",
+    --     config = true,
+    -- },
     {
         "jessekelighine/vindent.vim",
         event = "VeryLazy",
@@ -130,6 +146,7 @@ return {
     },
     {
         "tpope/vim-sleuth",
+
     },
     {
         "echasnovski/mini.surround",
@@ -153,6 +170,20 @@ return {
         event = "VeryLazy",
         opts = {
             open_mapping = [[<A-d>]],
+            on_open = function()
+                require("trouble").close()
+            end
         }
     },
+    {
+        'stevearc/dressing.nvim',
+        event = "VeryLazy",
+        opts = {},
+    }
+    -- {
+    --     'jedrzejboczar/exrc.nvim',
+    --     dependencies = { 'neovim/nvim-lspconfig' },     -- (optional)
+    --     config = true,
+    --     opts = { --[[ your config ]] },
+    -- },
 }

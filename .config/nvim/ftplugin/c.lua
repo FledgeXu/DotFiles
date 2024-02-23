@@ -4,15 +4,20 @@ if next(vim.fs.find('CMakeLists.txt', { upward = true, stop = vim.fn.getcwd() })
 end
 
 -- Config Default dap.
-if next(vim.fs.find({ ".nvim.lua", ".nvimrc", ".exrc" })) == nil then
+if require('dap').configurations.cpp == nil then
     local dap = require('dap')
-    dap.adapters.lldb = {
-        type = 'executable',
-        command = vim.fs.find("lldb-vscode", { path = "/opt/homebrew/Cellar/llvm/" })[1],
-        name = 'lldb'
+    dap.adapters.codelldb = {
+        type = 'server',
+        port = "${port}",
+        executable = {
+            -- CHANGE THIS to your path!
+            command = 'codelldb',
+            args = { "--port", "${port}" },
+            -- On windows you may have to uncomment this:
+            -- detached = false,
+        }
     }
-
-    dap.configurations.cpp = {
+    dap.configurations.c = {
         {
             name = 'Launch',
             type = 'lldb',

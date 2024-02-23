@@ -3,7 +3,7 @@ if next(vim.fs.find('Cargo.toml', { upward = true, stop = vim.fn.getcwd() })) ~=
     vim.opt.makeprg = [[cargo build]]
 end
 
-if next(vim.fs.find({ ".nvim.lua", ".nvimrc", ".exrc" })) == nil then
+if require('dap').configurations.rust == nil then
     local dap = require('dap')
     -- dap.adapters.lldb = {
     --     type = 'executable',
@@ -21,11 +21,12 @@ if next(vim.fs.find({ ".nvim.lua", ".nvimrc", ".exrc" })) == nil then
             -- detached = false,
         }
     }
-    dap.configurations.cpp = {
+    dap.configurations.rust = {
         {
             name = 'Default',
             type = 'codelldb',
             request = 'launch',
+            console = "integratedTerminal",
             program = function()
                 -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
                 return vim.fn.getcwd() ..

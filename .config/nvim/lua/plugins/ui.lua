@@ -55,6 +55,9 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
+        opts = {
+            attach_to_untracked = true,
+        },
         config = true
     },
     {
@@ -100,8 +103,9 @@ return {
         end,
     },
     {
-        'dgagn/diagflow.nvim',
-        event = 'LspAttach',
-        opts = {}
-    }
+        "willothy/flatten.nvim",
+        config = true,
+        lazy = false,
+        priority = 1001,
+    },
 }

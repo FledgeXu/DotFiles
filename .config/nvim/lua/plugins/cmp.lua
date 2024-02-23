@@ -94,9 +94,7 @@ return {
                 -- { name = 'ultisnips' }, -- For ultisnips users.
                 -- { name = 'snippy' }, -- For snippy users.
             }, {
-                { name = 'path' },
                 { name = 'buffer' },
-                { name = 'cmdline' },
             }),
             experimental = {
                 ghost_text = true,

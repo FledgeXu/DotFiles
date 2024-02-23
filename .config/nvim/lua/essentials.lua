@@ -26,7 +26,7 @@ option.title = true
 option.swapfile = false
 option.backup = false
 option.updatetime = 50
-option.mouse = "n"
+option.mouse = "a"
 option.undofile = true
 option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
 option.exrc = true
@@ -96,3 +96,21 @@ vim.api.nvim_create_user_command("UpdateAll", function()
     vim.cmd("Lazy update")
     vim.cmd("MasonUpdate")
 end, {})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        vim.cmd [[clearjumps]]
+    end,
+    pattern = '*',
+})
+
+local function region_to_text(region)
+    local text = ''
+    local maxcol = vim.v.maxcol
+    for line, cols in vim.spairs(region) do
+        local endcol = cols[2] == maxcol and -1 or cols[2]
+        local chunk = vim.api.nvim_buf_get_text(0, line, cols[1], line, endcol, {})[1]
+        text = ('%s%s\n'):format(text, chunk)
+    end
+    return text
+end

@@ -46,6 +46,7 @@ zinit snippet OMZL::key-bindings.zsh
 # setopt appendhistory
 setopt share_history
 
+alias cd='__zoxide_z'
 alias rm='trash'
 #alias ls='ls -G'
 alias ls='eza --sort=modified --oneline'

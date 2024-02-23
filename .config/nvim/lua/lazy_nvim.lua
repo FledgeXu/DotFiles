@@ -15,6 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 local opts = {
     install = {
         colorscheme = { "catppuccin-frappe" }
+    },
+    change_detection = {
+        notify = false,
     }
 }
 

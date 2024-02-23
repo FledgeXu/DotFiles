@@ -14,7 +14,6 @@ return {
         "folke/neodev.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
-        "nvimdev/lspsaga.nvim",
         {
             "j-hui/fidget.nvim",
             event = { "BufReadPost", "BufNewFile" },
@@ -39,7 +38,12 @@ return {
                     },
                 }
             },
-            pyright = {},
+            pyright = {
+                config_only = true
+                -- config = {
+                --     cmd = { 'delance-langserver', '--stdio' },
+                -- }
+            },
             jsonls = {},
             marksman = {},
             dockerls = {},
@@ -59,11 +63,6 @@ return {
             cmake = {},
         }
         require("neodev").setup()
-        require("lspsaga").setup({
-            lightbulb = {
-                enable = false,
-            }
-        })
         require("mason").setup()
         local install_servers = {}
         for server, config in pairs(servers) do
@@ -88,6 +87,13 @@ return {
                 )
             end
         end
+
+        require('pest-vim').setup {
+            { on_attach = on_attach, capabilities = require('cmp_nvim_lsp').default_capabilities() },
+        }
+
+
+
         -- Enable lsconfig --
         -- Use LspAttach autocommand to only map the following keys
         -- after the language server attaches to the current buffer
@@ -103,8 +109,7 @@ return {
                 -- We need a specific threat for the "term_toggle", it must be a global mapping, not a buffer mapping.
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
                 vim.keymap.set('n', 'gd', require "telescope.builtin".lsp_definitions, opts)
-                vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
-                vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<CR>", opts)
+                vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
                 vim.keymap.set('n', '<leader>gi', require "telescope.builtin".lsp_implementations, opts)
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
                 vim.keymap.set('n', '<leader>da', require "telescope.builtin".diagnostics, opts)
@@ -114,10 +119,10 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, opts)
                 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-                vim.keymap.set('n', '<space>rn', "<cmd>Lspsaga rename ++project<CR>", opts)
-                vim.keymap.set({ 'n', 'v' }, '<leader>ca', "<cmd>Lspsaga code_action<CR>", opts)
+                vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+                vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
                 vim.keymap.set('n', 'gr', require "telescope.builtin".lsp_references, opts)
-                vim.keymap.set('n', 'sd', "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+                vim.keymap.set('n', 'sd', vim.diagnostic.open_float, opts)
                 -- vim.keymap.set('n', '<space>f', function()
                 --     vim.lsp.buf.format { async = true }
                 -- end, opts)
