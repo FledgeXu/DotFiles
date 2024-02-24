@@ -5,10 +5,10 @@ return {
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
         config = function()
-            local auto_theme_custom = require('lualine.themes.auto')
+            local auto_theme_custom = require("lualine.themes.auto")
             -- auto_theme_custom.normal.c.bg = 'none'
-            require('lualine').setup { options = { theme = auto_theme_custom } }
-        end
+            require("lualine").setup({ options = { theme = auto_theme_custom } })
+        end,
     },
     {
         "utilyre/barbecue.nvim",
@@ -40,7 +40,7 @@ return {
             -- dashboard.section.buttons.val = {
             -- }
             alpha.setup(dashboard.config)
-        end
+        end,
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -48,9 +48,9 @@ return {
         main = "ibl",
         opts = {
             scope = {
-                enabled = false
-            }
-        }
+                enabled = false,
+            },
+        },
     },
     {
         "lewis6991/gitsigns.nvim",
@@ -58,18 +58,18 @@ return {
         opts = {
             attach_to_untracked = true,
         },
-        config = true
+        config = true,
     },
     {
         "NvChad/nvim-colorizer.lua",
         event = { "BufReadPost", "BufNewFile" },
         opts = {
             {
-                'css',
-                'javascript',
-                'typescript',
-                'html',
-            }
+                "css",
+                "javascript",
+                "typescript",
+                "html",
+            },
         },
     },
     {
@@ -82,13 +82,13 @@ return {
         "RRethy/vim-illuminate",
         event = "VeryLazy",
         config = function()
-            require('illuminate').configure()
+            require("illuminate").configure()
         end,
     },
     {
         "xiyaowong/transparent.nvim",
         config = function()
-            require('transparent').setup {
+            require("transparent").setup({
                 extra_groups = {
                     "NeoTreeNormal",
                     "NeoTreeNormalNC",
@@ -97,7 +97,7 @@ return {
                     "FloatBorder",
                     "FloatTitle",
                 },
-            }
+            })
             if vim.g.neovide then
                 vim.cmd("TransparentDisable")
             else

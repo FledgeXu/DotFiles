@@ -23,26 +23,22 @@ return {
         event = "VeryLazy",
         config = function()
             require("trouble").setup()
-            vim.keymap.set("n", "[q",
-                function()
-                    require("trouble").previous({ skip_groups = true, jump = true })
-                    vim.cmd [[norm! zz]]
-                end)
-            vim.keymap.set("n", "]q",
-                function()
-                    require("trouble").next({ skip_groups = true, jump = true })
-                    vim.cmd [[norm! zz]]
-                end)
-            vim.keymap.set("n", "[Q",
-                function()
-                    require("trouble").first({ skip_groups = true, jump = true })
-                    vim.cmd [[norm! zz]]
-                end)
-            vim.keymap.set("n", "]Q",
-                function()
-                    require("trouble").last({ skip_groups = true, jump = true })
-                    vim.cmd [[norm! zz]]
-                end)
+            vim.keymap.set("n", "[q", function()
+                require("trouble").previous({ skip_groups = true, jump = true })
+                vim.cmd([[norm! zz]])
+            end)
+            vim.keymap.set("n", "]q", function()
+                require("trouble").next({ skip_groups = true, jump = true })
+                vim.cmd([[norm! zz]])
+            end)
+            vim.keymap.set("n", "[Q", function()
+                require("trouble").first({ skip_groups = true, jump = true })
+                vim.cmd([[norm! zz]])
+            end)
+            vim.keymap.set("n", "]Q", function()
+                require("trouble").last({ skip_groups = true, jump = true })
+                vim.cmd([[norm! zz]])
+            end)
         end,
     },
     {
@@ -51,9 +47,9 @@ return {
         opts = {
             modes = {
                 search = {
-                    enabled = false
-                }
-            }
+                    enabled = false,
+                },
+            },
         },
         keys = {
             {
@@ -103,7 +99,7 @@ return {
         event = "VeryLazy",
         config = function()
             vim.g.spelunker_check_type = 2
-        end
+        end,
     },
     {
         "ellisonleao/glow.nvim",
@@ -121,7 +117,7 @@ return {
     },
     {
         "numToStr/Comment.nvim",
-        event  = "VeryLazy",
+        event = "VeryLazy",
         config = true,
     },
     {
@@ -130,40 +126,41 @@ return {
             filter_rules = {
                 include_current_win = true,
                 bo = {
-                    filetype = { "fidget", "neo-tree" }
-                }
-            }
+                    filetype = { "fidget", "neo-tree" },
+                },
+            },
         },
         keys = {
             {
                 "<c-w>p",
                 function()
-                    local window_number = require('window-picker').pick_window()
-                    if window_number then vim.api.nvim_set_current_win(window_number) end
+                    local window_number = require("window-picker").pick_window()
+                    if window_number then
+                        vim.api.nvim_set_current_win(window_number)
+                    end
                 end,
-            }
-        }
+            },
+        },
     },
     {
         "tpope/vim-sleuth",
-
     },
     {
         "echasnovski/mini.surround",
         opts = {
             mappings = {
-                add = '<leader>sa',            -- Add surrounding in Normal and Visual modes
-                delete = '<leader>sd',         -- Delete surrounding
-                find = '<leader>sf',           -- Find surrounding (to the right)
-                find_left = '<leader>sF',      -- Find surrounding (to the left)
-                highlight = '<leader>sh',      -- Highlight surrounding
-                replace = '<leader>sr',        -- Replace surrounding
-                update_n_lines = '<leader>sn', -- Update `n_lines`
+                add = "<leader>sa", -- Add surrounding in Normal and Visual modes
+                delete = "<leader>sd", -- Delete surrounding
+                find = "<leader>sf", -- Find surrounding (to the right)
+                find_left = "<leader>sF", -- Find surrounding (to the left)
+                highlight = "<leader>sh", -- Highlight surrounding
+                replace = "<leader>sr", -- Replace surrounding
+                update_n_lines = "<leader>sn", -- Update `n_lines`
 
-                suffix_last = 'l',             -- Suffix to search with "prev" method
-                suffix_next = 'n',             -- Suffix to search with "next" method
+                suffix_last = "l", -- Suffix to search with "prev" method
+                suffix_next = "n", -- Suffix to search with "next" method
             },
-        }
+        },
     },
     {
         "akinsho/toggleterm.nvim",
@@ -172,11 +169,11 @@ return {
             open_mapping = [[<A-d>]],
             on_open = function()
                 require("trouble").close()
-            end
-        }
+            end,
+        },
     },
     {
-        'stevearc/dressing.nvim',
+        "stevearc/dressing.nvim",
         event = "VeryLazy",
         opts = {},
     },

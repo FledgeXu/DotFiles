@@ -17,8 +17,8 @@ return {
 
     config = function()
         local luasnip = require("luasnip")
-        local cmp = require('cmp')
-        local lspkind = require('lspkind')
+        local cmp = require("cmp")
+        local lspkind = require("lspkind")
 
         require("luasnip.loaders.from_vscode").lazy_load()
         local has_words_before = function()
@@ -33,7 +33,7 @@ return {
             },
             view = {
                 docs = {
-                    auto_open = false
+                    auto_open = false,
                 },
             },
             window = {
@@ -43,23 +43,21 @@ return {
             snippet = {
                 -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                ['<c-n>'] =
-                    cmp.mapping(function()
-                        luasnip.jump(1)
-                    end, { "i", "s" }),
-                ['<c-p>'] =
-                    cmp.mapping(function(fallback)
-                        if luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
+                ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ["<c-n>"] = cmp.mapping(function()
+                    luasnip.jump(1)
+                end, { "i", "s" }),
+                ["<c-p>"] = cmp.mapping(function(fallback)
+                    if luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
@@ -77,9 +75,9 @@ return {
                         fallback()
                     end
                 end, { "i", "s" }),
-                ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<C-g>'] = function()
+                ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                ["<C-g>"] = function()
                     if cmp.visible_docs() then
                         cmp.close_docs()
                     else
@@ -88,30 +86,30 @@ return {
                 end,
             }),
             sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'nvim_lua' },
-                { name = 'luasnip' }, -- For luasnip users.
+                { name = "nvim_lsp" },
+                { name = "nvim_lua" },
+                { name = "luasnip" }, -- For luasnip users.
                 -- { name = 'ultisnips' }, -- For ultisnips users.
                 -- { name = 'snippy' }, -- For snippy users.
             }, {
-                { name = 'buffer' },
+                { name = "buffer" },
             }),
             experimental = {
                 ghost_text = true,
-            }
+            },
         })
-        cmp.setup.cmdline('/', {
+        cmp.setup.cmdline("/", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
-                { name = 'buffer' },
-            }
+                { name = "buffer" },
+            },
         })
-        cmp.setup.cmdline(':', {
+        cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'path' },
-                { name = 'cmdline' }
-            })
+                { name = "path" },
+                { name = "cmdline" },
+            }),
         })
-    end
+    end,
 }

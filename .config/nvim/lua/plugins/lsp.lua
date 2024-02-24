@@ -5,7 +5,7 @@ return {
     dependencies = {
         {
             "nvim-jdtls",
-            ft = { 'java' },
+            ft = { "java" },
         },
         {
             "williamboman/mason.nvim",
@@ -21,9 +21,9 @@ return {
                 notification = {
                     window = {
                         winblend = 0,
-                    }
-                }
-            }
+                    },
+                },
+            },
         },
     },
     config = function()
@@ -36,10 +36,10 @@ return {
                             telemetry = { enable = false },
                         },
                     },
-                }
+                },
             },
             pyright = {
-                config_only = true
+                config_only = true,
                 -- config = {
                 --     cmd = { 'delance-langserver', '--stdio' },
                 -- }
@@ -80,49 +80,48 @@ return {
         for server, config in pairs(servers) do
             if not config["install_only"] then
                 require("lspconfig")[server].setup(
-                    vim.tbl_deep_extend("keep",
-                        { on_attach = on_attach, capabilities = require('cmp_nvim_lsp').default_capabilities() },
-                        config['config'] and config['config'] or {}
+                    vim.tbl_deep_extend(
+                        "keep",
+                        { on_attach = on_attach, capabilities = require("cmp_nvim_lsp").default_capabilities() },
+                        config["config"] and config["config"] or {}
                     )
                 )
             end
         end
 
-        require('pest-vim').setup {
-            { on_attach = on_attach, capabilities = require('cmp_nvim_lsp').default_capabilities() },
-        }
-
-
+        require("pest-vim").setup({
+            { on_attach = on_attach, capabilities = require("cmp_nvim_lsp").default_capabilities() },
+        })
 
         -- Enable lsconfig --
         -- Use LspAttach autocommand to only map the following keys
         -- after the language server attaches to the current buffer
-        vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
                 -- Enable completion triggered by <c-x><c-o>
-                vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+                vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
                 -- Buffer local mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
                 local opts = { buffer = ev.buf }
                 -- We need a specific threat for the "term_toggle", it must be a global mapping, not a buffer mapping.
-                vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-                vim.keymap.set('n', 'gd', require "telescope.builtin".lsp_definitions, opts)
-                vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-                vim.keymap.set('n', '<leader>gi', require "telescope.builtin".lsp_implementations, opts)
-                vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-                vim.keymap.set('n', '<leader>da', require "telescope.builtin".diagnostics, opts)
-                vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-                vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-                vim.keymap.set('n', '<space>wl', function()
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+                vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts)
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+                vim.keymap.set("n", "<leader>gi", require("telescope.builtin").lsp_implementations, opts)
+                vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+                vim.keymap.set("n", "<leader>da", require("telescope.builtin").diagnostics, opts)
+                vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+                vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+                vim.keymap.set("n", "<space>wl", function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, opts)
-                vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-                vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-                vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-                vim.keymap.set('n', 'gr', require "telescope.builtin".lsp_references, opts)
-                vim.keymap.set('n', 'sd', vim.diagnostic.open_float, opts)
+                vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+                vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+                vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
+                vim.keymap.set("n", "sd", vim.diagnostic.open_float, opts)
                 -- vim.keymap.set('n', '<space>f', function()
                 --     vim.lsp.buf.format { async = true }
                 -- end, opts)
@@ -135,5 +134,5 @@ return {
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
         end
-    end
+    end,
 }

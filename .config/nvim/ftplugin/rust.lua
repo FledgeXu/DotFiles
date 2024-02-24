@@ -1,40 +1,41 @@
-if next(vim.fs.find('Cargo.toml', { upward = true, stop = vim.fn.getcwd() })) ~= nil then
-    vim.cmd [[compiler cargo]]
+if next(vim.fs.find("Cargo.toml", { upward = true, stop = vim.fn.getcwd() })) ~= nil then
+    vim.cmd([[compiler cargo]])
     vim.opt.makeprg = [[cargo build]]
 end
 
-if require('dap').configurations.rust == nil then
-    local dap = require('dap')
+if require("dap").configurations.rust == nil then
+    local dap = require("dap")
     -- dap.adapters.lldb = {
     --     type = 'executable',
     --     command = vim.fs.find("lldb-vscode", { path = "/opt/homebrew/Cellar/llvm/" })[1],
     --     name = 'lldb'
     -- }
     dap.adapters.codelldb = {
-        type = 'server',
+        type = "server",
         port = "${port}",
         executable = {
             -- CHANGE THIS to your path!
-            command = 'codelldb',
+            command = "codelldb",
             args = { "--port", "${port}" },
             -- On windows you may have to uncomment this:
             -- detached = false,
-        }
+        },
     }
     dap.configurations.rust = {
         {
-            name = 'Default',
-            type = 'codelldb',
-            request = 'launch',
+            name = "Default",
+            type = "codelldb",
+            request = "launch",
             console = "integratedTerminal",
             program = function()
                 -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
-                return vim.fn.getcwd() ..
-                    '/target/debug/' ..
-                    vim.fn.system({ "rg", "-o", 'name[[:space:]]*=[[:space:]]*"(.*)"', "Cargo.toml", "-r", "$1" }):gsub(
-                        "%s+", "")
+                return vim.fn.getcwd()
+                    .. "/target/debug/"
+                    .. vim.fn
+                        .system({ "rg", "-o", 'name[[:space:]]*=[[:space:]]*"(.*)"', "Cargo.toml", "-r", "$1" })
+                        :gsub("%s+", "")
             end,
-            cwd = '${workspaceFolder}',
+            cwd = "${workspaceFolder}",
             stopOnEntry = false,
             args = function()
                 return { vim.fn.input("Program args: ") }

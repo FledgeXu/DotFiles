@@ -28,19 +28,17 @@ option.backup = false
 option.updatetime = 50
 option.mouse = "a"
 option.undofile = true
-option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
+option.undodir = vim.fn.expand("$HOME/.local/share/nvim/undo")
 option.exrc = true
 option.wrap = false
 option.splitright = true
 option.laststatus = 3
 option.winblend = 10
-option.foldcolumn = 'auto'
+option.foldcolumn = "auto"
 option.foldlevel = 99
 option.foldlevelstart = 99
 option.foldenable = true
 option.jumpoptions = "stack"
-
-
 
 global.netrw_liststyle = 3
 global.netrw_winsize = 25
@@ -56,7 +54,6 @@ global.mapleader = " "
 -- grep --
 global.grepprg = [[grepprg=rg\ --vimgrep\ --no-heading\ --smart-case]]
 
-
 -- vim.keymap.set("n", "ts", ":tabNext<CR>")
 -- vim.keymap.set("n", "tn", ":tabnew<CR>")
 -- vim.keymap.set("n", "tc", ":tabclose<CR>")
@@ -70,7 +67,7 @@ vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set({ "v", "n" }, "<leader>y", "\"+y")
+vim.keymap.set({ "v", "n" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<c-d>", "<c-d>zz")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
 vim.keymap.set("n", "<c-f>", "<c-f>zz")
@@ -84,13 +81,13 @@ vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>")
 vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<cr>")
 vim.keymap.set("n", "<leader>E", "<cmd>E<cr>")
 
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
     end,
     group = highlight_group,
-    pattern = '*',
+    pattern = "*",
 })
 
 vim.api.nvim_create_user_command("UpdateAll", function()
@@ -100,18 +97,18 @@ end, {})
 
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
-        vim.cmd [[clearjumps]]
+        vim.cmd([[clearjumps]])
     end,
-    pattern = '*',
+    pattern = "*",
 })
 
 local function region_to_text(region)
-    local text = ''
+    local text = ""
     local maxcol = vim.v.maxcol
     for line, cols in vim.spairs(region) do
         local endcol = cols[2] == maxcol and -1 or cols[2]
         local chunk = vim.api.nvim_buf_get_text(0, line, cols[1], line, endcol, {})[1]
-        text = ('%s%s\n'):format(text, chunk)
+        text = ("%s%s\n"):format(text, chunk)
     end
     return text
 end

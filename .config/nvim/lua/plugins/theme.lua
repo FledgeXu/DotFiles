@@ -7,18 +7,18 @@ return {
         config = function(opts)
             require("tokyonight").setup(opts)
             vim.cmd.colorscheme("tokyonight")
-        end
+        end,
     },
     {
         "catppuccin/nvim",
         priority = 1000,
         name = "catppuccin",
         opts = {
-            transparent_background = vim.g.transparent_enabled
+            transparent_background = vim.g.transparent_enabled,
         },
         config = function(opts)
             -- require "catppuccin".setup(opts)
             -- vim.cmd.colorscheme("catppuccin-mocha")
-        end
-    }
+        end,
+    },
 }

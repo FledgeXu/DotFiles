@@ -16,13 +16,13 @@ return {
             },
         },
         -- ensure_installed = "all",
-        ensure_installed = {"lua"},
+        ensure_installed = { "lua" },
         -- ignore_install = { "swift", "phpdoc"},
         indent = {
             -- enable = true
         },
         highlight = {
-            enable = true
+            enable = true,
         },
         playground = {
             enable = true,
@@ -36,5 +36,5 @@ return {
                 },
             },
         },
-    }
+    },
 }
