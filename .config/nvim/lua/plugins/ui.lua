@@ -93,6 +93,9 @@ return {
                     "NeoTreeNormal",
                     "NeoTreeNormalNC",
                     "NormalFloat",
+                    "FoldColumn",
+                    "FloatBorder",
+                    "FloatTitle",
                 },
             }
             if vim.g.neovide then
@@ -101,11 +104,5 @@ return {
                 vim.cmd("TransparentEnable")
             end
         end,
-    },
-    {
-        "willothy/flatten.nvim",
-        config = true,
-        lazy = false,
-        priority = 1001,
     },
 }

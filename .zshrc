@@ -52,7 +52,7 @@ alias rm='trash'
 alias ls='eza --sort=modified --oneline'
 alias la='eza -la --sort=modified'
 alias ps='procs'
-alias cat='bat --theme 1337'
+alias cat='bat --theme github'
 #alias vi=vim
 alias vim=nvim
 alias typora="open -a typora"

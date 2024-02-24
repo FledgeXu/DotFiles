@@ -5,8 +5,8 @@ return {
             transparent = vim.g.transparent_enabled,
         },
         config = function(opts)
-            -- require("tokyonight").setup(opts)
-            -- vim.cmd.colorscheme("tokyonight")
+            require("tokyonight").setup(opts)
+            vim.cmd.colorscheme("tokyonight")
         end
     },
     {
@@ -17,8 +17,8 @@ return {
             transparent_background = vim.g.transparent_enabled
         },
         config = function(opts)
-            require "catppuccin".setup(opts)
-            vim.cmd.colorscheme("catppuccin-mocha")
+            -- require "catppuccin".setup(opts)
+            -- vim.cmd.colorscheme("catppuccin-mocha")
         end
     }
 }

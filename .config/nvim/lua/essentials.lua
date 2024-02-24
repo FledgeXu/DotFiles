@@ -20,7 +20,7 @@ option.smartcase = true
 option.completeopt = { "menuone", "noselect" }
 option.cursorline = true
 option.termguicolors = true
-option.signcolumn = "yes:1"
+option.signcolumn = "auto"
 option.autoread = true
 option.title = true
 option.swapfile = false
@@ -34,11 +34,12 @@ option.wrap = false
 option.splitright = true
 option.laststatus = 3
 option.winblend = 10
-option.foldcolumn = '1'
+option.foldcolumn = 'auto'
 option.foldlevel = 99
 option.foldlevelstart = 99
 option.foldenable = true
 option.jumpoptions = "stack"
+
 
 
 global.netrw_liststyle = 3

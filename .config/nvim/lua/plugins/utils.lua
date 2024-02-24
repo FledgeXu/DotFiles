@@ -179,7 +179,17 @@ return {
         'stevearc/dressing.nvim',
         event = "VeryLazy",
         opts = {},
-    }
+    },
+    {
+        "willothy/flatten.nvim",
+        opts = {
+            window = {
+                open = "alternate",
+            },
+        },
+        lazy = false,
+        priority = 1001,
+    },
     -- {
     --     'jedrzejboczar/exrc.nvim',
     --     dependencies = { 'neovim/nvim-lspconfig' },     -- (optional)
