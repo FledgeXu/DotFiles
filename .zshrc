@@ -60,7 +60,6 @@ alias typora="open -a typora"
 alias brave="open -a Brave\ Browser"
 alias finder="open -a finder"
 alias vide="/opt/homebrew/bin/neovide --frame transparent"
-alias cim="NVIM_APPNAME=cppnvim nvim"
 
 alias ..="cd .."
 alias ..='cd ..'
