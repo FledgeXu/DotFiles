@@ -46,19 +46,21 @@ zinit snippet OMZL::key-bindings.zsh
 # setopt appendhistory
 setopt share_history
 
+export EDITOR=nvim
 alias cd='__zoxide_z'
 alias rm='trash'
 #alias ls='ls -G'
 alias ls='eza --sort=modified --oneline'
 alias la='eza -la --sort=modified'
 alias ps='procs'
-alias cat='bat --theme github'
+alias cat='bat --theme "Monokai Extended Light"'
 #alias vi=vim
 alias vim=nvim
 alias typora="open -a typora"
 alias brave="open -a Brave\ Browser"
 alias finder="open -a finder"
 alias vide="/opt/homebrew/bin/neovide --frame transparent"
+alias cim="NVIM_APPNAME=cppnvim nvim"
 
 alias ..="cd .."
 alias ..='cd ..'

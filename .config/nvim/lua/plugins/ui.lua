@@ -6,8 +6,7 @@ return {
         },
         config = function()
             local auto_theme_custom = require("lualine.themes.auto")
-            -- auto_theme_custom.normal.c.bg = 'none'
-            require("lualine").setup({ options = { theme = auto_theme_custom } })
+            require("lualine").setup({ theme = auto_theme_custom })
         end,
     },
     {
@@ -16,30 +15,21 @@ return {
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
-        config = true,
+        opts = {
+            show_modified = true,
+            custom_section = function()
+                return "%F"
+            end,
+        },
     },
     {
         "goolord/alpha-nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "nvim-lua/plenary.nvim",
+        },
         config = function()
-            local alpha = require("alpha")
-            -- local theta = require("alpha.themes.theta")
-            local dashboard = require("alpha.themes.dashboard")
-            -- table.insert(theta.buttons.val,
-            --     dashboard.button("SPC q s", "󰑓  Restore the session",
-            --         [[<cmd>lua require("persistence").load({ last = true })<cr>]]))
-            dashboard.section.header.val = {
-                "                                                     ",
-                "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-                "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-                "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-                "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-                "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-                "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-                "                                                     ",
-            }
-            -- dashboard.section.buttons.val = {
-            -- }
-            alpha.setup(dashboard.config)
+            require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
     {
@@ -97,11 +87,12 @@ return {
                     "FloatBorder",
                     "FloatTitle",
                 },
+                exclude_groups = {
+                    "NotifyBackground",
+                },
             })
             if vim.g.neovide then
                 vim.cmd("TransparentDisable")
-            else
-                vim.cmd("TransparentEnable")
             end
         end,
     },

@@ -39,6 +39,10 @@ option.foldlevel = 99
 option.foldlevelstart = 99
 option.foldenable = true
 option.jumpoptions = "stack"
+option.winbar = "=%F"
+option.conceallevel = 2
+option.confirm = true
+option.list = true
 
 global.netrw_liststyle = 3
 global.netrw_winsize = 25
@@ -54,14 +58,14 @@ global.mapleader = " "
 -- grep --
 global.grepprg = [[grepprg=rg\ --vimgrep\ --no-heading\ --smart-case]]
 
--- vim.keymap.set("n", "ts", ":tabNext<CR>")
--- vim.keymap.set("n", "tn", ":tabnew<CR>")
--- vim.keymap.set("n", "tc", ":tabclose<CR>")
--- vim.keymap.set("n", "to", ":tabonly<CR>")
+vim.keymap.set("n", "<A-Tab>", ":tabNext<CR>")
+vim.keymap.set("n", "tn", ":tabnew<CR>")
+vim.keymap.set("n", "tc", ":tabclose<CR>")
+vim.keymap.set("n", "to", ":tabonly<CR>")
 vim.keymap.set("n", "<F10>", "<cmd>w<CR><cmd>make<CR><cmd>Trouble quickfix<cr>")
 
-vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
-vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
+-- vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
+-- vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
 -- vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -81,7 +85,14 @@ vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>")
 vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<cr>")
 vim.keymap.set("n", "<leader>E", "<cmd>E<cr>")
 
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+-- Termainl
+vim.keymap.set("t", "<esc><esc>", [[<c-\><c-n>]])
+
+-- Modified
+vim.keymap.set("n", "<leader>lk", "<cmd>set nomodifiable<cr>")
+vim.keymap.set("n", "<leader>ul", "<cmd>set modifiable<cr>")
+
+local hkighlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
@@ -102,13 +113,23 @@ vim.api.nvim_create_autocmd("VimEnter", {
     pattern = "*",
 })
 
-local function region_to_text(region)
-    local text = ""
-    local maxcol = vim.v.maxcol
-    for line, cols in vim.spairs(region) do
-        local endcol = cols[2] == maxcol and -1 or cols[2]
-        local chunk = vim.api.nvim_buf_get_text(0, line, cols[1], line, endcol, {})[1]
-        text = ("%s%s\n"):format(text, chunk)
-    end
-    return text
-end
+-- diagnostic
+vim.keymap.set("n", "sd", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+
+-- quickfix and locallist
+vim.keymap.set("n", "<leader>xl", function()
+    local win = vim.api.nvim_get_current_win()
+    local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
+    local action = qf_winid > 0 and "lclose" or "lopen"
+    action = next(vim.fn.getloclist(0)) == nil and "lclose" or action
+    vim.cmd(action)
+end, {})
+
+vim.keymap.set("n", "<leader>xq", function()
+    local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+    local action = qf_winid > 0 and "cclose" or "copen"
+    vim.cmd("botright " .. action)
+end, {})

@@ -1,7 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
-    build = ":TSUpdate",
+    build = ":TSUpdateSync all",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
     },
@@ -15,8 +15,7 @@ return {
                 node_decremental = "V",
             },
         },
-        -- ensure_installed = "all",
-        ensure_installed = { "lua" },
+        ensure_installed = "all",
         -- ignore_install = { "swift", "phpdoc"},
         indent = {
             -- enable = true

@@ -4,7 +4,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         {
-            "nvim-jdtls",
+            "mfussenegger/nvim-jdtls",
             ft = { "java" },
         },
         {
@@ -61,6 +61,7 @@ return {
             volar = { install_only = true },
             jdtls = { install_only = true },
             cmake = {},
+            pest_ls = {},
         }
         require("neodev").setup()
         require("mason").setup()
@@ -82,16 +83,16 @@ return {
                 require("lspconfig")[server].setup(
                     vim.tbl_deep_extend(
                         "keep",
-                        { on_attach = on_attach, capabilities = require("cmp_nvim_lsp").default_capabilities() },
+                        { capabilities = require("cmp_nvim_lsp").default_capabilities() },
                         config["config"] and config["config"] or {}
                     )
                 )
             end
         end
 
-        require("pest-vim").setup({
-            { on_attach = on_attach, capabilities = require("cmp_nvim_lsp").default_capabilities() },
-        })
+        -- require("pest-vim").setup({
+        --     { on_attach = on_attach, capabilities = require("cmp_nvim_lsp").default_capabilities() },
+        -- })
 
         -- Enable lsconfig --
         -- Use LspAttach autocommand to only map the following keys
@@ -121,10 +122,6 @@ return {
                 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
                 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
                 vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
-                vim.keymap.set("n", "sd", vim.diagnostic.open_float, opts)
-                -- vim.keymap.set('n', '<space>f', function()
-                --     vim.lsp.buf.format { async = true }
-                -- end, opts)
             end,
         })
 

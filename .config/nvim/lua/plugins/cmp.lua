@@ -1,8 +1,8 @@
 return {
     "hrsh7th/nvim-cmp",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "UIEnter" },
     dependencies = {
-        "/onsails/lspkind.nvim",
+        "onsails/lspkind.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -48,6 +48,8 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ["<C-y"] = cmp.mapping.confirm({ select = true }),
+                ["<C-e"] = cmp.mapping.abort(),
                 ["<c-n>"] = cmp.mapping(function()
                     luasnip.jump(1)
                 end, { "i", "s" }),
