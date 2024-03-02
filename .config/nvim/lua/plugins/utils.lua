@@ -123,6 +123,7 @@ return {
     {
         "s1n7ax/nvim-window-picker",
         opts = {
+            hint = "floating-big-letter",
             filter_rules = {
                 include_current_win = true,
                 bo = {
@@ -150,8 +151,12 @@ return {
         event = "VeryLazy",
         opts = {
             open_mapping = [[<A-d>]],
-            on_open = function()
-                require("trouble").close()
+            size = function(term)
+                if term.direction == "horizontal" then
+                    return 10
+                elseif term.direction == "vertical" then
+                    return vim.o.columns * 0.4
+                end
             end,
         },
     },

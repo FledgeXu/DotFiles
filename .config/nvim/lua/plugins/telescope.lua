@@ -19,7 +19,7 @@ return {
     cmd = { "Telescope" },
     keys = {
         { "<leader>?", "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
-        { "<leader><space>", "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<cr>" },
+        { "<space><space>", "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<cr>" },
         {
             "<leader>/",
             function()
@@ -30,7 +30,7 @@ return {
                 }))
             end,
         },
-        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>" },
+        { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden=true, sort_mru=true})<cr>" },
         {
             "<leader>fg",
             "<cmd>lua require('telescope.builtin').live_grep( { hidden = true, additional_args = { '--fixed-strings' } })<cr>",
@@ -39,6 +39,7 @@ return {
         { "<leader>fb", "<cmd>lua require('telescope.builtin').builtin()<cr>" },
         { "<leader>fp", "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>" },
         { "<leader>fm", "<cmd>lua require('telescope.builtin').marks()<cr>" },
+        { "<leader>fj", "<cmd>lua require('telescope.builtin').jumplist	()<cr>" },
         { "<leader>qf", "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
         { "<leader>km", "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
         {

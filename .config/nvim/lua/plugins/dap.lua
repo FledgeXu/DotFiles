@@ -17,7 +17,7 @@ return {
         {
             "<F4>",
             function()
-                require("telescope").continue()
+                require("dap").continue()
             end,
         },
         {

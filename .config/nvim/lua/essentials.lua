@@ -17,7 +17,7 @@ option.wildmenu = true
 option.hlsearch = false
 option.ignorecase = true
 option.smartcase = true
-option.completeopt = { "menuone", "noselect" }
+option.completeopt = { "menuone", "noselect", "noinsert" }
 option.cursorline = true
 option.termguicolors = true
 option.signcolumn = "auto"
@@ -40,9 +40,7 @@ option.foldlevelstart = 99
 option.foldenable = true
 option.jumpoptions = "stack"
 option.winbar = "=%F"
-option.conceallevel = 2
 option.confirm = true
-option.list = true
 
 global.netrw_liststyle = 3
 global.netrw_winsize = 25
@@ -54,19 +52,20 @@ buffer.fileenconding = { "utf-8" }
 
 -- Global Settings --
 global.mapleader = " "
+global.maplocalleader = ","
 
 -- grep --
 global.grepprg = [[grepprg=rg\ --vimgrep\ --no-heading\ --smart-case]]
 
-vim.keymap.set("n", "<A-Tab>", ":tabNext<CR>")
-vim.keymap.set("n", "tn", ":tabnew<CR>")
-vim.keymap.set("n", "tc", ":tabclose<CR>")
-vim.keymap.set("n", "to", ":tabonly<CR>")
-vim.keymap.set("n", "<F10>", "<cmd>w<CR><cmd>make<CR><cmd>Trouble quickfix<cr>")
+-- vim.keymap.set("n", "<A-Tab>", ":tabNext<CR>")
+-- vim.keymap.set("n", "tn", ":tabnew<CR>")
+-- vim.keymap.set("n", "tc", ":tabclose<CR>")
+-- vim.keymap.set("n", "to", ":tabonly<CR>")
+-- vim.keymap.set("n", "<F10>", "<cmd>w<CR><cmd>make<CR>")
 
--- vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
--- vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
--- vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>")
+vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
+vim.keymap.set("n", "<leader>bo", ":%bd|e#|bd#<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

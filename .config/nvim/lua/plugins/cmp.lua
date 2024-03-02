@@ -40,6 +40,9 @@ return {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
             },
+            completion = {
+                completeopt = table.concat(vim.opt.completeopt:get(), ","),
+            },
             snippet = {
                 -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
