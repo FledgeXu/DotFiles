@@ -153,7 +153,7 @@ return {
             open_mapping = [[<A-d>]],
             size = function(term)
                 if term.direction == "horizontal" then
-                    return 10
+                    return 8
                 elseif term.direction == "vertical" then
                     return vim.o.columns * 0.4
                 end

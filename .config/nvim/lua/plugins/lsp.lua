@@ -62,6 +62,7 @@ return {
             jdtls = { install_only = true },
             cmake = {},
             pest_ls = {},
+            clojure_lsp = {},
         }
         require("neodev").setup()
         require("mason").setup()
