@@ -149,6 +149,7 @@ return {
     {
         "akinsho/toggleterm.nvim",
         event = "VeryLazy",
+        enabled = false,
         opts = {
             open_mapping = [[<A-d>]],
             size = function(term)

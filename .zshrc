@@ -214,6 +214,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PATH="$HOME/.local/bin/depot_tools:${PATH}"
 export PATH="$HOME/.local/bin:${PATH}"
 export PATH="$HOME/.cargo/bin:${PATH}"
+export PATH="$HOME/.local/share/bob/nvim-bin:${PATH}"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f "/Users/fledge/.ghcup/env" ] && source "/Users/fledge/.ghcup/env" # ghcup-env
@@ -228,6 +229,7 @@ fi
 
 function update-all() {
     brew update && brew upgrade
+    bob update --all
     zinit update
     rustup upgrade
     opam update && opam upgrade -y

@@ -89,6 +89,7 @@ return {
                 },
                 exclude_groups = {
                     "NotifyBackground",
+                    "CursorLine",
                 },
             })
             if vim.g.neovide then

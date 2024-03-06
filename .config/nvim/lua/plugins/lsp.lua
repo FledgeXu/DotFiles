@@ -4,8 +4,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         {
-            "mfussenegger/nvim-jdtls",
-            ft = { "java" },
+            "mfussenegger/nvim-jdtls", ft = { "java" },
         },
         {
             "williamboman/mason.nvim",
@@ -34,6 +33,9 @@ return {
                         Lua = {
                             workspace = { checkThirdParty = false },
                             telemetry = { enable = false },
+                            hint = {
+                                enable = true,
+                            },
                         },
                     },
                 },
@@ -54,7 +56,8 @@ return {
             ruff_lsp = {},
             hls = {},
             html = {},
-            rust_analyzer = {},
+            rust_analyzer = {
+            },
             tsserver = { install_only = true },
             -- tailwindcss = {},
             clangd = {},
@@ -101,6 +104,7 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
+                vim.lsp.inlay_hint.enable()
                 -- Enable completion triggered by <c-x><c-o>
                 vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
