@@ -53,7 +53,7 @@ alias rm='trash'
 alias ls='eza --sort=modified --oneline'
 alias la='eza -la --sort=modified'
 alias ps='procs'
-alias cat='bat --theme "Monokai Extended Light"'
+alias cat='bat --theme "1337"'
 #alias vi=vim
 alias vim=nvim
 alias typora="open -a typora"
@@ -61,6 +61,7 @@ alias brave="open -a Brave\ Browser"
 alias finder="open -a finder"
 alias vide="/opt/homebrew/bin/neovide --frame transparent"
 alias cim="NVIM_APPNAME=cppnvim vim"
+alias tig="tig --show-signature"
 
 alias ..="cd .."
 alias ..='cd ..'
@@ -79,8 +80,8 @@ alias flushdns="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 alias refreshcard='gpg-connect-agent killagent /bye && gpg-connect-agent "scd serialno" "learn --force" /bye && gpg --card-status'
 
-export PLAN9=/Users/fledge/Developer/plan9/plan9port
-export PATH=$PATH:$PLAN9/bin
+# export PLAN9=/Users/fledge/Developer/plan9/plan9port
+# export PATH=$PATH:$PLAN9/bin
 
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -229,11 +230,11 @@ fi
 
 function update-all() {
     brew update && brew upgrade
-    bob update --all
     zinit update
     rustup upgrade
     opam update && opam upgrade -y
     ghcup upgrade
     ghcup install ghc && ghcup install cabal && ghcup install stack
     sdk update && sdk upgrade
+    softwareupdate -i -a
 }

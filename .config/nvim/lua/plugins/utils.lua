@@ -193,4 +193,9 @@ return {
         },
         ft = "qf",
     },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = true,
+    },
 }

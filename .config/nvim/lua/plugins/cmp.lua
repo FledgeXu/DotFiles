@@ -19,8 +19,12 @@ return {
         local luasnip = require("luasnip")
         local cmp = require("cmp")
         local lspkind = require("lspkind")
+        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
         require("luasnip.loaders.from_vscode").lazy_load()
+
+        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
         local has_words_before = function()
             unpack = unpack or table.unpack
             local line, col = unpack(vim.api.nvim_win_get_cursor(0))

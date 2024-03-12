@@ -18,7 +18,7 @@ option.hlsearch = false
 option.ignorecase = true
 option.smartcase = true
 option.completeopt = { "menuone", "noselect", "noinsert" }
-option.cursorline = true
+-- option.cursorline = true
 option.termguicolors = true
 option.signcolumn = "auto"
 option.autoread = true
@@ -61,7 +61,7 @@ global.grepprg = [[grepprg=rg\ --vimgrep\ --no-heading\ --smart-case]]
 -- vim.keymap.set("n", "tn", ":tabnew<CR>")
 -- vim.keymap.set("n", "tc", ":tabclose<CR>")
 -- vim.keymap.set("n", "to", ":tabonly<CR>")
--- vim.keymap.set("n", "<F10>", "<cmd>w<CR><cmd>make<CR>")
+vim.keymap.set("n", "<F10>", "<cmd>w<CR><cmd>make<CR>")
 
 vim.keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>")
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>")
