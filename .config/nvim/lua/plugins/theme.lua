@@ -18,7 +18,7 @@ return {
         },
         config = function(opts)
             require("catppuccin").setup(opts)
-            vim.cmd.colorscheme("catppuccin-mocha")
+            vim.cmd.colorscheme("catppuccin-frappe")
         end,
     },
     {

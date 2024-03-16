@@ -13,6 +13,17 @@ return {
             dependencies = { "rafamadriz/friendly-snippets" },
         },
         "saadparwaiz1/cmp_luasnip",
+        -- {
+        --     "zbirenbaum/copilot-cmp",
+        --     dependencies = { "zbirenbaum/copilot.lua" },
+        --     config = function()
+        --         require("copilot").setup({
+        --             suggestion = { enabled = false },
+        --             panel = { enabled = false },
+        --         })
+        --         require("copilot_cmp").setup()
+        --     end,
+        -- },
     },
 
     config = function()
@@ -33,7 +44,9 @@ return {
 
         cmp.setup({
             formatting = {
-                format = lspkind.cmp_format(),
+                format = lspkind.cmp_format({
+                    symbol_map = { Copilot = "" },
+                }),
             },
             view = {
                 docs = {
@@ -96,6 +109,7 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
+                -- { name = "copilot" },
                 { name = "nvim_lua" },
                 { name = "luasnip" }, -- For luasnip users.
                 { name = "buffer" },

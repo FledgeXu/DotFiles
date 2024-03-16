@@ -13,7 +13,7 @@ return {
                 },
             })
 
-            vim.keymap.set({ "n", "v" }, "<c-l>", function()
+            vim.keymap.set({ "n", "v" }, "<a-d-l>", function()
                 conform.format({
                     lsp_fallback = true,
                 })

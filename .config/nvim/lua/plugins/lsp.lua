@@ -1,13 +1,14 @@
 return {
     "neovim/nvim-lspconfig",
-    cmd = { "Mason", "MasonUpdate" },
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         {
-            "mfussenegger/nvim-jdtls", ft = { "java" },
+            "mfussenegger/nvim-jdtls",
+            ft = { "java" },
         },
         {
             "williamboman/mason.nvim",
+            cmd = { "Mason", "MasonUpdate" },
             build = ":MasonUpdate",
         },
         "folke/neodev.nvim",
@@ -56,11 +57,19 @@ return {
             ruff_lsp = {},
             hls = {},
             html = {},
-            rust_analyzer = {
-            },
+            rust_analyzer = {},
             tsserver = { install_only = true },
             -- tailwindcss = {},
-            clangd = {},
+            clangd = {
+                config = {
+                    cmd = {
+                        -- Conflict with copilot lsp, copilot only support UTF-16, which is sucks.
+                        -- https://github.com/zbirenbaum/copilot.lua/issues/118
+                        "clangd",
+                        "--offset-encoding=utf-16",
+                    },
+                },
+            },
             volar = { install_only = true },
             jdtls = { install_only = true },
             cmake = {},
@@ -93,10 +102,6 @@ return {
                 )
             end
         end
-
-        -- require("pest-vim").setup({
-        --     { on_attach = on_attach, capabilities = require("cmp_nvim_lsp").default_capabilities() },
-        -- })
 
         -- Enable lsconfig --
         -- Use LspAttach autocommand to only map the following keys
@@ -131,7 +136,7 @@ return {
         })
 
         -- custom signs
-        local signs = { Error = "•", Warn = "•", Hint = "•", Info = "•" }
+        local signs = { Error = "", Warn = "", Hint = "", Info = "" }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

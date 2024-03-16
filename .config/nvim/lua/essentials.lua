@@ -39,7 +39,7 @@ option.foldlevel = 99
 option.foldlevelstart = 99
 option.foldenable = true
 option.jumpoptions = "stack"
-option.winbar = "=%F"
+-- option.winbar = "=%F"
 option.confirm = true
 
 global.netrw_liststyle = 3
