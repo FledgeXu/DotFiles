@@ -101,16 +101,16 @@ return {
             vim.g.spelunker_check_type = 2
         end,
     },
-    {
-        "ellisonleao/glow.nvim",
-        event = "VeryLazy",
-        config = true,
-    },
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        config = true,
-    },
+    -- {
+    --     "ellisonleao/glow.nvim",
+    --     event = "VeryLazy",
+    --     config = true,
+    -- },
+    -- {
+    --     "folke/which-key.nvim",
+    --     event = "VeryLazy",
+    --     config = true,
+    -- },
     {
         "jessekelighine/vindent.vim",
         event = "VeryLazy",
@@ -144,12 +144,12 @@ return {
         },
     },
     {
-        "tpope/vim-sleuth",
+        "NMAC427/guess-indent.nvim",
+        opts = {},
     },
     {
         "akinsho/toggleterm.nvim",
         event = "VeryLazy",
-        enabled = false,
         opts = {
             open_mapping = [[<A-d>]],
             size = function(term)
@@ -197,5 +197,13 @@ return {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = true,
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
     },
 }

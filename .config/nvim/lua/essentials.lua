@@ -91,7 +91,7 @@ vim.keymap.set("t", "<esc><esc>", [[<c-\><c-n>]])
 vim.keymap.set("n", "<leader>lk", "<cmd>set nomodifiable<cr>")
 vim.keymap.set("n", "<leader>ul", "<cmd>set modifiable<cr>")
 
-local hkighlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+-- vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
@@ -132,3 +132,23 @@ vim.keymap.set("n", "<leader>xq", function()
     local action = qf_winid > 0 and "cclose" or "copen"
     vim.cmd("botright " .. action)
 end, {})
+
+-- vim.diagnostic.config({
+--     underline = true,
+--     signs = true,
+--     virtual_text = false,
+--     float = {
+--         show_header = true,
+--         source = "always",
+--         border = "rounded",
+--         focusable = true,
+--     },
+--     update_in_insert = false, -- default to false
+--     severity_sort = false, -- default to false
+-- })
+-- custom signs
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end

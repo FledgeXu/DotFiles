@@ -160,6 +160,8 @@ return {
             })
             if vim.g.neovide then
                 vim.cmd("TransparentDisable")
+            else
+                vim.cmd("TransparentEnable")
             end
         end,
     },

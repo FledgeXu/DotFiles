@@ -58,8 +58,8 @@ return {
             hls = {},
             html = {},
             rust_analyzer = {},
-            tsserver = { install_only = true },
-            -- tailwindcss = {},
+            tsserver = {},
+            tailwindcss = {},
             clangd = {
                 config = {
                     cmd = {
@@ -134,12 +134,5 @@ return {
                 vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
             end,
         })
-
-        -- custom signs
-        local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-        end
     end,
 }

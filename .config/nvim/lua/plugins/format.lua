@@ -10,6 +10,8 @@ return {
                     python = { "black" },
                     swift = { "swift_format" },
                     lua = { "stylua" },
+                    typescriptreact = { { "prettierd", "prettier" } },
+                    html = { { "prettierd", "prettier" } },
                 },
             })
 

@@ -52,7 +52,6 @@ alias rm='trash'
 #alias ls='ls -G'
 alias ls='eza --sort=modified --oneline'
 alias la='eza -la --sort=modified'
-alias ps='procs'
 alias cat='bat --theme "1337"'
 #alias vi=vim
 alias vim=nvim
@@ -228,11 +227,11 @@ then
 fi
 
 function update-all() {
-    brew update && brew upgrade
-    zinit update
+    brew update && brew upgrade && brew autoremove
+    zinit update -a -q
     rustup upgrade
-    opam update && opam upgrade -y
-    ghcup upgrade
+    opam update -y
+    opam upgrade -y
     ghcup install ghc && ghcup install cabal && ghcup install stack
     sdk update && sdk upgrade
     softwareupdate -i -a

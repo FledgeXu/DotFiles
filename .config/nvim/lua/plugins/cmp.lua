@@ -59,6 +59,7 @@ return {
             },
             completion = {
                 completeopt = table.concat(vim.opt.completeopt:get(), ","),
+                keyword_length = 2,
             },
             snippet = {
                 -- REQUIRED - you must specify a snippet engine
@@ -68,8 +69,8 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                ["<C-y"] = cmp.mapping.confirm({ select = true }),
-                ["<C-e"] = cmp.mapping.abort(),
+                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                ["<C-e>"] = cmp.mapping.abort(),
                 ["<c-n>"] = cmp.mapping(function()
                     luasnip.jump(1)
                 end, { "i", "s" }),
