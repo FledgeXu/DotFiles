@@ -31,6 +31,7 @@ return {
         local cmp = require("cmp")
         local lspkind = require("lspkind")
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+        local defaults = require("cmp.config.default")()
 
         require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -59,8 +60,8 @@ return {
             },
             completion = {
                 completeopt = table.concat(vim.opt.completeopt:get(), ","),
-                keyword_length = 2,
             },
+            sorting = defaults.sorting,
             snippet = {
                 -- REQUIRED - you must specify a snippet engine
                 expand = function(args)

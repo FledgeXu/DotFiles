@@ -10,6 +10,25 @@ return {
         "ethanholz/nvim-lastplace",
         config = true,
     },
+    {
+        "nvim-lua/plenary.nvim",
+        keys = {
+            {
+                "<leader>hpb",
+                function()
+                    require("plenary.profile").start("profile.log", { flame = true })
+                end,
+                desc = "Begin profiling",
+            },
+            {
+                "<leader>hpe",
+                function()
+                    require("plenary.profile").stop()
+                end,
+                desc = "End profiling",
+            },
+        },
+    },
     -- {
     --     "folke/trouble.nvim",
     --     keys = {
@@ -166,16 +185,16 @@ return {
         event = "VeryLazy",
         opts = {},
     },
-    {
-        "willothy/flatten.nvim",
-        opts = {
-            window = {
-                open = "alternate",
-            },
-        },
-        lazy = false,
-        priority = 1001,
-    },
+    -- {
+    --     "willothy/flatten.nvim",
+    --     opts = {
+    --         window = {
+    --             open = "alternate",
+    --         },
+    --     },
+    --     lazy = false,
+    --     priority = 1001,
+    -- },
     {
         "tummetott/unimpaired.nvim",
         event = "VeryLazy",
