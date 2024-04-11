@@ -13,12 +13,17 @@ return {
         "catppuccin/nvim",
         priority = 1000,
         name = "catppuccin",
-        opts = {
-            transparent_background = vim.g.transparent_enabled,
-        },
-        config = function(opts)
-            require("catppuccin").setup(opts)
-            vim.cmd.colorscheme("catppuccin-frappe")
+        config = function()
+            require("catppuccin").setup({
+                flavour = "frappe",
+                transparent_background = vim.g.transparent_enabled,
+                integrations = {
+                    fidget = true,
+                    gitsigns = true,
+                    window_picker = true,
+                },
+            })
+            vim.cmd.colorscheme("catppuccin")
         end,
     },
     {
@@ -28,6 +33,13 @@ return {
             --     style = "light",
             -- })
             -- require("onedark").load()
+        end,
+    },
+    {
+        "projekt0n/github-nvim-theme",
+        config = function(opts)
+            -- require("github-theme").setup(opts)
+            -- vim.cmd("colorscheme github_light")
         end,
     },
 }

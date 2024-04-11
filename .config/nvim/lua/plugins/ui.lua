@@ -9,21 +9,22 @@ return {
             require("lualine").setup({ theme = auto_theme_custom })
         end,
     },
-    -- {
-    --     "utilyre/barbecue.nvim",
-    --     dependencies = {
-    --         "SmiteshP/nvim-navic",
-    --         "nvim-tree/nvim-web-devicons", -- optional dependency
-    --     },
-    --     opts = {
-    --         show_modified = true,
-    --         custom_section = function()
-    --             return "%F"
-    --         end,
-    --     },
-    -- },
+    {
+        "utilyre/barbecue.nvim",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        opts = {
+            show_modified = true,
+            custom_section = function()
+                return "%m%F"
+            end,
+        },
+    },
     {
         "b0o/incline.nvim",
+        enabled = false,
         dependencies = {
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons", -- optional dependency
