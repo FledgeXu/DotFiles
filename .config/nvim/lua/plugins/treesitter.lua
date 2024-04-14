@@ -18,7 +18,7 @@ return {
         ensure_installed = "all",
         -- ignore_install = { "swift", "phpdoc"},
         indent = {
-            -- enable = true
+            enable = true,
         },
         highlight = {
             enable = true,
@@ -32,6 +32,26 @@ return {
                 keymaps = {
                     ["af"] = "@function.outer",
                     ["if"] = "@function.inner",
+                },
+            },
+            move = {
+                enable = true,
+                set_jumps = true, -- whether to set jumps in the jumplist
+                goto_next_start = {
+                    ["]f"] = "@function.outer",
+                    ["]c"] = { query = "@class.outer", desc = "Next class start" },
+                },
+                goto_next_end = {
+                    ["]F"] = "@function.outer",
+                    ["]C"] = "@class.outer",
+                },
+                goto_previous_start = {
+                    ["[f"] = "@function.outer",
+                    ["[c"] = "@class.outer",
+                },
+                goto_previous_end = {
+                    ["[F"] = "@function.outer",
+                    ["[C"] = "@class.outer",
                 },
             },
         },

@@ -1,5 +1,6 @@
 if vim.g.neovide then
-    vim.o.guifont = "FiraCode Nerd Font Mono:h15"
+    vim.o.guifont = "FiraCode Nerd Font Mono:h16"
+    vim.g.neovide_confirm_quit = true
     vim.g.neovide_transparency = 0.95
     vim.g.transparency = 0.95
     vim.g.neovide_window_blurred = true

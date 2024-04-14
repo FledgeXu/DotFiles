@@ -75,6 +75,7 @@ return {
             end,
         },
         { "<c-p>", "<cmd>lua require('telescope.builtin').commands()<cr>" },
+        { "<leader>faf", "<cmd>lua require('telescope.builtin').treesitter({symbols={'function', 'method'}})<cr>" },
     },
     config = function()
         require("telescope").setup({
