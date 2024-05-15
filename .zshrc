@@ -48,6 +48,7 @@ setopt share_history
 
 export EDITOR=nvim
 alias cd='__zoxide_z'
+alias ci="__zoxide_zi"
 alias rm='trash'
 #alias ls='ls -G'
 alias ls='eza --sort=modified --oneline'
@@ -215,6 +216,7 @@ export PATH="$HOME/.local/bin/depot_tools:${PATH}"
 export PATH="$HOME/.local/bin:${PATH}"
 export PATH="$HOME/.cargo/bin:${PATH}"
 export PATH="$(brew --prefix python)/libexec/bin:${PATH}"
+export PATH="$(brew --prefix llvm)/bin:${PATH}"
 export PATH="/Users/fledge/.local/share/bob/nvim-bin:${PATH}"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 

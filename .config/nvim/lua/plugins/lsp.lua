@@ -75,6 +75,7 @@ return {
             cmake = {},
             pest_ls = {},
             clojure_lsp = {},
+            intelephense = {},
         }
         require("neodev").setup()
         require("mason").setup()

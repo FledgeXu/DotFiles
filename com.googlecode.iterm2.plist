@@ -5639,6 +5639,8 @@
 	<true/>
 	<key>FastForegroundJobUpdates</key>
 	<false/>
+	<key>FlashTabBarInFullscreen</key>
+	<false/>
 	<key>FocusFollowsMouse</key>
 	<false/>
 	<key>ForceAntialiasingOnRetina</key>
@@ -5766,6 +5768,8 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HTMLTabTitles</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideActivityIndicator</key>
@@ -7347,7 +7351,7 @@
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowMetalFPSmeter</key>
 	<false/>
 	<key>ShowNewOutputIndicator</key>

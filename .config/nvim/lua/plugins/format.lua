@@ -12,6 +12,8 @@ return {
                     lua = { "stylua" },
                     typescriptreact = { { "prettierd", "prettier" } },
                     html = { { "prettierd", "prettier" } },
+                    css = { { "prettierd", "prettier" } },
+                    php = { "pretty-php" },
                 },
             })
 
