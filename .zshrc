@@ -217,7 +217,6 @@ export PATH="$HOME/.local/bin:${PATH}"
 export PATH="$HOME/.cargo/bin:${PATH}"
 export PATH="$(brew --prefix python)/libexec/bin:${PATH}"
 export PATH="$(brew --prefix llvm)/bin:${PATH}"
-export PATH="/Users/fledge/.local/share/bob/nvim-bin:${PATH}"
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f "/Users/fledge/.ghcup/env" ] && source "/Users/fledge/.ghcup/env" # ghcup-env
@@ -239,5 +238,4 @@ function update-all() {
     ghcup install ghc && ghcup install cabal && ghcup install stack
     sdk update && sdk upgrade
     softwareupdate -i -a
-    bob update nightly
 }
