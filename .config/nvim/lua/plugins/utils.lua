@@ -1,4 +1,5 @@
 return {
+    event = "VeryLazy",
     {
         "rhysd/accelerated-jk",
         enabled = false,
@@ -172,7 +173,7 @@ return {
         dependencies = {
             {
                 "junegunn/fzf",
-                build = function()
+                run = function()
                     vim.fn["fzf#install"]()
                 end,
             },
@@ -195,10 +196,15 @@ return {
     {
         "yutkat/confirm-quit.nvim",
         event = "CmdlineEnter",
-        opts = {},
+        config = function()
+            if vim.g.neovide then
+                require("confirm-quit").setup()
+            end
+        end,
     },
     {
         "m4xshen/hardtime.nvim",
+        enabled = false,
         event = "VeryLazy",
         dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
         opts = {},
@@ -231,5 +237,26 @@ return {
             --     NextParagraph = { text = "}", prio = 1 },
             -- },
         },
+    },
+    {
+        "tpope/vim-eunuch",
+        event = "VeryLazy",
+    },
+    {
+        "kristijanhusak/vim-dadbod-ui",
+        dependencies = {
+            { "tpope/vim-dadbod", lazy = true },
+            { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+        },
+        cmd = {
+            "DBUI",
+            "DBUIToggle",
+            "DBUIAddConnection",
+            "DBUIFindBuffer",
+        },
+        init = function()
+            -- Your DBUI configuration
+            vim.g.db_ui_use_nerd_fonts = 1
+        end,
     },
 }

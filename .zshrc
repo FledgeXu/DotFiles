@@ -103,8 +103,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# opam configuration
-[[ ! -r /Users/fledge/.opam/opam-init/init.zsh ]] || source /Users/fledge/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 # =============================================================================
 #
 # Utility functions for zoxide.
@@ -233,8 +231,6 @@ function update-all() {
     brew update && brew upgrade && brew autoremove
     zinit update -a -q
     rustup upgrade
-    opam update -y
-    opam upgrade -y
     ghcup install ghc && ghcup install cabal && ghcup install stack
     sdk update && sdk upgrade
     softwareupdate -i -a

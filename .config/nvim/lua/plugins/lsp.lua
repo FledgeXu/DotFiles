@@ -58,7 +58,7 @@ return {
             hls = {},
             html = {},
             rust_analyzer = {},
-            tsserver = {},
+            ts_ls = {},
             tailwindcss = {},
             clangd = {
                 config = {
@@ -76,6 +76,8 @@ return {
             pest_ls = {},
             clojure_lsp = {},
             intelephense = {},
+            sourcekit = { config_only = true },
+            jinja_lsp = {},
         }
         require("neodev").setup()
         require("mason").setup()

@@ -10,9 +10,9 @@ return {
                     python = { "black" },
                     swift = { "swift_format" },
                     lua = { "stylua" },
-                    typescriptreact = { { "prettierd", "prettier" } },
-                    html = { { "prettierd", "prettier" } },
-                    css = { { "prettierd", "prettier" } },
+                    typescriptreact = { "prettierd", "prettier" },
+                    html = { "prettierd", "prettier" },
+                    css = { "prettierd", "prettier" },
                     php = { "pretty-php" },
                 },
             })

@@ -3,6 +3,7 @@ local buffer = vim.b
 local global = vim.g
 
 -- Globol Settings --
+option.autoread = true
 option.showmode = false
 option.backspace = { "indent", "eol", "start" }
 option.tabstop = 4
