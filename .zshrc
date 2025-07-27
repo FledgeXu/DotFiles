@@ -210,6 +210,7 @@ eval "$(zoxide init zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export PATH="$HOME/go/bin:${PATH}"
 export PATH="$HOME/.local/bin/depot_tools:${PATH}"
 export PATH="$HOME/.local/bin:${PATH}"
 export PATH="$HOME/.cargo/bin:${PATH}"

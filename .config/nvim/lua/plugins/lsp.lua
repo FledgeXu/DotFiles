@@ -41,7 +41,7 @@ return {
 				},
 			},
 			pyright = {
-				config_only = true,
+				-- config_only = true,
 				-- config = {
 				--     cmd = { 'delance-langserver', '--stdio' },
 				-- }
@@ -77,7 +77,9 @@ return {
 			intelephense = {},
 			sourcekit = { config_only = true },
 			jinja_lsp = {},
-			gopls = {},
+			gopls = {
+				gofumpt = true,
+			},
 		}
 		require("neodev").setup()
 		require("mason").setup()

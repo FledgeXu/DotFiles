@@ -185,15 +185,6 @@ return {
 		end,
 	},
 	{
-		"yutkat/confirm-quit.nvim",
-		event = "CmdlineEnter",
-		config = function()
-			if vim.g.neovide then
-				require("confirm-quit").setup()
-			end
-		end,
-	},
-	{
 		"windwp/nvim-ts-autotag",
 		event = "VeryLazy",
 		opts = {},
